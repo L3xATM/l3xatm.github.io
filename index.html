@@ -8,8 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
 <style>
-/* Fonts y colores */
-body { margin:0; padding:0; font-family:'Open Sans', sans-serif; background:#0f0f0f; color:#e0e0e0; overflow-x:hidden; scroll-behavior:smooth; }
+body { margin:0; padding:0; font-family:'Open Sans', sans-serif; background:#0f0f0f; color:#e0e0e0; overflow-x:hidden; scroll-behavior:smooth;}
 h1,h2,h3{font-family:'Roboto',sans-serif;}
 a{text-decoration:none;}
 
@@ -20,14 +19,15 @@ nav {
 nav a { margin:0 15px; color:#e0e0e0; font-weight:bold; transition: all 0.3s; }
 nav a:hover { color:#9b4dff; transform:scale(1.1); }
 
-/* Fondo animado gradient wave con partículas */
+/* Fondo animado épico WOW */
 #background {
   position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2;
-  background: linear-gradient(270deg, #6b46c1, #3182ce, #9b4dff, #ff6ec7);
-  background-size: 800% 800%;
-  animation: gradientBG 30s ease infinite;
+  background: radial-gradient(circle at center, #6b46c1, #3182ce, #ff6ec7, #9b4dff);
+  background-size: 200% 200%;
+  animation: bgAnimation 20s ease infinite alternate;
+  overflow:hidden;
 }
-@keyframes gradientBG {
+@keyframes bgAnimation {
   0%{background-position:0% 50%;}
   50%{background-position:100% 50%;}
   100%{background-position:0% 50%;}
@@ -37,11 +37,11 @@ nav a:hover { color:#9b4dff; transform:scale(1.1); }
 .particle { position:absolute; border-radius:50%; opacity:0.5; animation: floatParticles linear infinite; }
 @keyframes floatParticles { 0%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-50px) translateX(20px);} 100%{transform:translateY(0) translateX(0);} }
 
-/* Animaciones al scroll */
+/* Animaciones scroll */
 .fade-in { opacity:0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.visible { opacity:1; transform: translateY(0); }
 
-/* Badges con partículas y glow */
+/* Badges interactivos */
 .badge { position:relative; display:inline-block; margin:5px; padding:12px 20px; border-radius:9999px; font-weight:bold; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s;}
 .badge:hover { transform: scale(1.25) translateY(-5px); box-shadow:0 10px 40px rgba(155,77,255,0.8);}
 .badge::after { content:''; position:absolute; width:100%; height:100%; top:0; left:0; border-radius:9999px; box-shadow:0 0 25px rgba(155,77,255,0.5); opacity:0; transition:opacity 0.3s;}
@@ -51,7 +51,7 @@ nav a:hover { color:#9b4dff; transform:scale(1.1); }
 .btn { transition: all 0.3s; border-radius:12px; padding:12px 18px; font-weight:bold; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
 .btn:hover { transform: scale(1.1); box-shadow:0 0 30px #9b4dff; color:#fff; }
 
-/* Playlist flotante tipo mini app */
+/* Playlist flotante mini app */
 #playlist { position:fixed; bottom:30px; right:30px; width:360px; max-width:90%; border-radius:24px; box-shadow:0 25px 60px rgba(0,0,0,0.7); z-index:50; overflow:hidden; transition:all 0.4s; background:#1f1f1f; }
 #playlist.closed { transform: translateX(120%); }
 #togglePlaylist { position:fixed; bottom:30px; right:30px; z-index:60; background:#1f1f1f; color:#fff; padding:14px 20px; border-radius:24px; cursor:pointer; font-weight:bold; box-shadow:0 12px 30px rgba(0,0,0,0.7); transition:all 0.3s;}
@@ -72,6 +72,7 @@ header { padding:12rem 1rem; text-align:center; color:#fff; position:relative; }
 <nav>
   <a href="#sobre-mi">Sobre mí</a>
   <a href="#musica-aficiones">Música & Aficiones</a>
+  <a href="#mis-cantantes">Mis Cantantes</a>
   <a href="#redes-contacto">Redes</a>
 </nav>
 
@@ -122,20 +123,28 @@ for(let i=0;i<50;i++){
 </div>
 </section>
 
+<!-- Mis cantantes favoritos -->
+<section id="mis-cantantes" class="fade-in">
+<h2 class="text-4xl md:text-5xl mb-6 glow">Mis Cantantes Favoritos</h2>
+<div class="flex flex-wrap justify-center gap-6">
+<a href="https://open.spotify.com/artist/1bAftSH8umNcGZ0uyV7LMg" target="_blank" class="btn bg-purple-600 hover:bg-purple-700">Drake</a>
+<a href="https://open.spotify.com/artist/7D62OQfwvslnxJn9DkZm2F" target="_blank" class="btn bg-pink-500 hover:bg-pink-600">Travis Scott</a>
+<a href="https://open.spotify.com/artist/1nwjHzOUQZsNYX8xoWiGVC" target="_blank" class="btn bg-blue-500 hover:bg-blue-600">Bad Bunny</a>
+<a href="https://open.spotify.com/artist/2qWK8K2Jfh67UqtwY8tCW6" target="_blank" class="btn bg-yellow-500 hover:bg-yellow-600">The Weeknd</a>
+</div>
+</section>
+
 <!-- Redes Sociales -->
 <section id="redes-contacto" class="fade-in">
 <h2 class="text-4xl md:text-5xl mb-6 glow">Redes y Contacto</h2>
 <p class="text-lg md:text-xl mb-8">Conéctate conmigo en todas mis plataformas:</p>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/amazon.png"/> Amazon Wishlist</a>
-<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/domain.png"/> Web Bere</a>
 <a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/new-post.png"/> Email</a>
 <a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 hover:bg-blue-700"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/> Facebook</a>
 <a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 hover:bg-pink-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/instagram-new.png"/> Instagram</a>
 <a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black hover:bg-gray-900"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/> TikTok</a>
 <a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 hover:bg-blue-500"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/twitter.png"/> X/Twitter</a>
 <a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 hover:bg-red-700"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/youtube-play.png"/> YouTube</a>
-<a href="https://www.vavel.com/es/author/l3xssj" target="_blank" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/news.png"/> Vavel</a>
 </div>
 </section>
 
