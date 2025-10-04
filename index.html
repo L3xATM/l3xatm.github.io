@@ -1,91 +1,142 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lex - Página Oficial</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f0f0f;
-      color: #fff;
-      text-align: center;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      padding: 2rem;
-      background: #1c1c1c;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2.5rem;
-      color: #00ffae;
-    }
-    section {
-      padding: 2rem;
-    }
-    h2 {
-      color: #00ffae;
-    }
-    .socials {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 1.5rem;
-    }
-    .socials a {
-      display: inline-block;
-      padding: 10px 18px;
-      background: #1c1c1c;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-    .socials a:hover {
-      background: #00ffae;
-      color: #000;
-      transform: scale(1.1);
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>🌐 Lex</h1>
-    <p>Bienvenido a mi página personal</p>
-  </header>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lex - Alex González</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js">
+<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
+<style>
+/* Animaciones al scroll */
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  <section>
-    <h2>📩 Contacto & Redes</h2>
-    <div class="socials">
-      <a href="mailto:contactol3x@gmail.com">📧 Email</a>
-      <a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share">🛒 Amazon Wishlist</a>
-      <a href="https://bere.al/aaleeexxgonzalez">📸 BeReal</a>
-      <a href="https://www.facebook.com/lex.45152">📘 Facebook</a>
-      <a href="https://instagram.com/l3xssj">📷 Instagram</a>
-      <a href="https://tiktok.com/@aaleeexxgonzalez">🎵 TikTok</a>
-      <a href="https://x.com/l3xssj">🐦 X (Twitter)</a>
-      <a href="https://www.youtube.com/@l3xssj?sub_confirmation=1">▶️ YouTube</a>
-      <a href="https://www.threads.com/l3xssj">🧵 Threads</a>
-      <a href="https://open.spotify.com/user/1137186980">🎶 Spotify</a>
-      <a href="https://t.me/l3xssj">✈️ Telegram</a>
-      <a href="https://twitch.tv/l3xssj">🎮 Twitch</a>
-      <a href="https://pinterest.com/l3xssj/">📌 Pinterest</a>
-      <a href="https://soundcloud.com/l3x_25">🎧 SoundCloud</a>
-      <a href="https://www.paypal.me/XxLeXeRxX">💸 PayPal</a>
-      <a href="https://patreon.com/L3x_25">❤️ Patreon</a>
-      <a href="https://kick.com/l3xatm">⚡ Kick</a>
-      <a href="https://github.com/L3xATM">💻 GitHub</a>
-      <a href="https://www.etsy.com/es/people/cwiaee2almdv1m49">🛍️ Etsy</a>
-      <a href="https://bsky.app/profile/l3xatm.bsky.social">🌌 Bluesky</a>
-      <a href="https://www.whatsapp.com/channel/0029Vb3LVg7EgGfV20GynM2">💬 WhatsApp</a>
-      <a href="https://discord.gg/yjJ2A7ASHS">🎙️ Discord</a>
-      <a href="https://snapchat.com/add/agonzlez6367585">👻 Snapchat</a>
-      <a href="https://you.bandcamp.com/l3xssj">🎵 Bandcamp</a>
-      <a href="https://l3xatm.github.io">🌍 Web</a>
+/* Portfolio hover y tilt */
+.card { transition: transform 0.4s, box-shadow 0.4s; cursor: pointer; }
+.card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
+
+/* Botones redes con glow */
+.btn { transition: transform 0.3s, box-shadow 0.3s; }
+.btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(255,255,255,0.5); }
+
+/* Efectos badges */
+.badge { transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
+.badge:hover { transform: scale(1.2) rotate(-5deg); box-shadow: 0 5px 15px rgba(255,255,255,0.3); }
+
+/* Playlist flotante */
+#playlist { position: fixed; bottom: 20px; right: 20px; width: 300px; max-width: 90%; border-radius: 12px; z-index: 50; }
+</style>
+</head>
+<body class="bg-gray-900 text-white font-sans scroll-smooth">
+
+<!-- Header -->
+<header class="text-center py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+<h1 class="text-6xl font-bold mb-2">Lex</h1>
+<p class="text-2xl">Alex González – Portfolio | Música | Aficiones</p>
+</header>
+
+<!-- Sobre mí -->
+<section class="max-w-4xl mx-auto py-16 px-4 text-center fade-in">
+<h2 class="text-4xl font-semibold mb-6">Sobre mí</h2>
+<p class="text-lg mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, los PCs y la creatividad digital. Aquí comparto mis <strong>proyectos</strong>, <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
+<p class="text-lg">También ofrezco <strong>servicios informáticos en Barcelona</strong>: limpieza, mantenimiento y asesoría tecnológica.</p>
+</section>
+
+<!-- Portfolio -->
+<section class="py-16 px-4 fade-in">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl font-semibold mb-12">Portfolio</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="card bg-gray-800 p-4 rounded-xl shadow-lg tilt" data-tilt data-tilt-max="15" data-tilt-speed="400">
+        <img src="https://via.placeholder.com/400x200" alt="Proyecto 1" class="rounded-lg mb-4">
+        <h3 class="text-2xl font-bold mb-2">Proyecto 1</h3>
+        <p>Descripción detallada de tu proyecto con tecnologías utilizadas.</p>
     </div>
-  </section>
+    <div class="card bg-gray-800 p-4 rounded-xl shadow-lg tilt" data-tilt data-tilt-max="15" data-tilt-speed="400">
+        <img src="https://via.placeholder.com/400x200" alt="Proyecto 2" class="rounded-lg mb-4">
+        <h3 class="text-2xl font-bold mb-2">Proyecto 2</h3>
+        <p>Descripción detallada de tu proyecto con tecnologías utilizadas.</p>
+    </div>
+    <div class="card bg-gray-800 p-4 rounded-xl shadow-lg tilt" data-tilt data-tilt-max="15" data-tilt-speed="400">
+        <img src="https://via.placeholder.com/400x200" alt="Proyecto 3" class="rounded-lg mb-4">
+        <h3 class="text-2xl font-bold mb-2">Proyecto 3</h3>
+        <p>Descripción detallada de tu proyecto con tecnologías utilizadas.</p>
+    </div>
+</div>
+</div>
+</section>
+
+<!-- Aficiones -->
+<section class="py-16 px-4 fade-in">
+<div class="max-w-4xl mx-auto text-center">
+<h2 class="text-4xl font-semibold mb-6">Aficiones</h2>
+<p class="text-lg mb-6">Me encanta la tecnología, los videojuegos, la creatividad digital y mantenerme al día con tendencias de diseño y entretenimiento.</p>
+<div class="flex flex-wrap justify-center gap-6">
+    <span class="badge bg-blue-600 px-6 py-3 rounded-full font-semibold">Gaming 🎮</span>
+    <span class="badge bg-purple-600 px-6 py-3 rounded-full font-semibold">Tecnología 💻</span>
+    <span class="badge bg-pink-500 px-6 py-3 rounded-full font-semibold">Creatividad 🎨</span>
+    <span class="badge bg-yellow-500 px-6 py-3 rounded-full font-semibold">Música 🎵</span>
+</div>
+</div>
+</section>
+
+<!-- Redes Sociales -->
+<section class="bg-gray-800 py-16 px-4 fade-in">
+<div class="max-w-6xl mx-auto text-center">
+<h2 class="text-4xl font-semibold mb-6">Redes y Contacto</h2>
+<p class="text-lg mb-8">Conéctate conmigo en todas mis plataformas:</p>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 p-4 rounded-lg hover:bg-gray-600">Amazon Wishlist</a>
+<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 p-4 rounded-lg hover:bg-gray-600">Web Bere</a>
+<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 p-4 rounded-lg hover:bg-gray-600">Email</a>
+<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 p-4 rounded-lg hover:bg-blue-700">Facebook</a>
+<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 p-4 rounded-lg hover:bg-pink-600">Instagram</a>
+<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black p-4 rounded-lg hover:bg-gray-900">TikTok</a>
+<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 p-4 rounded-lg hover:bg-blue-500">X/Twitter</a>
+<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 p-4 rounded-lg hover:bg-red-700">YouTube</a>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer class="text-center py-8 bg-gradient-to-r from-blue-600 to-purple-600 mt-12">
+<p>&copy; 2025 Alex González (Lex). Todos los derechos reservados.</p>
+</footer>
+
+<!-- Playlist flotante -->
+<div id="playlist">
+<iframe 
+    src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" 
+    width="100%" 
+    height="380" 
+    frameborder="0" 
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+    class="rounded-lg shadow-lg">
+</iframe>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
+<script>
+VanillaTilt.init(document.querySelectorAll(".tilt"), {
+    max: 15,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.3,
+});
+
+// Animación al scroll
+const faders = document.querySelectorAll('.fade-in');
+const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
+const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
+    entries.forEach(entry => {
+        if(!entry.isIntersecting) return;
+        entry.target.classList.add('visible');
+        appearOnScroll.unobserve(entry.target);
+    });
+}, appearOptions);
+faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
 </body>
 </html>
