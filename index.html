@@ -9,18 +9,23 @@
 <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
 <style>
 /* Fonts y colores */
-body { margin:0; padding:0; font-family:'Open Sans', sans-serif; background:#0f0f0f; color:#e0e0e0; overflow-x:hidden;}
+body { margin:0; padding:0; font-family:'Open Sans', sans-serif; background:#0f0f0f; color:#e0e0e0; overflow-x:hidden; scroll-behavior:smooth; }
 h1,h2,h3{font-family:'Roboto',sans-serif;}
 a{text-decoration:none;}
 
+/* Navbar fija */
+nav {
+  position:fixed; top:0; width:100%; background:#121212cc; backdrop-filter:blur(10px); z-index:100; display:flex; justify-content:center; padding:1rem 0;
+}
+nav a { margin:0 15px; color:#e0e0e0; font-weight:bold; transition: all 0.3s; }
+nav a:hover { color:#9b4dff; transform:scale(1.1); }
+
 /* Fondo animado gradient wave con partículas */
 #background {
-  position:fixed;
-  top:0; left:0; width:100%; height:100%; z-index:-2;
+  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2;
   background: linear-gradient(270deg, #6b46c1, #3182ce, #9b4dff, #ff6ec7);
   background-size: 800% 800%;
   animation: gradientBG 30s ease infinite;
-  overflow:hidden;
 }
 @keyframes gradientBG {
   0%{background-position:0% 50%;}
@@ -29,20 +34,11 @@ a{text-decoration:none;}
 }
 
 /* Partículas flotantes */
-.particle {
-  position:absolute;
-  border-radius:50%;
-  opacity:0.5;
-  animation: floatParticles linear infinite;
-}
-@keyframes floatParticles {
-  0%{transform: translateY(0) translateX(0);}
-  50%{transform: translateY(-50px) translateX(20px);}
-  100%{transform: translateY(0) translateX(0);}
-}
+.particle { position:absolute; border-radius:50%; opacity:0.5; animation: floatParticles linear infinite; }
+@keyframes floatParticles { 0%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-50px) translateX(20px);} 100%{transform:translateY(0) translateX(0);} }
 
 /* Animaciones al scroll */
-.fade-in { opacity:0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out;}
+.fade-in { opacity:0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.visible { opacity:1; transform: translateY(0); }
 
 /* Badges con partículas y glow */
@@ -52,7 +48,7 @@ a{text-decoration:none;}
 .badge:hover::after { opacity:1; }
 
 /* Botones redes sociales */
-.btn { transition: all 0.3s; border-radius:12px; padding:12px 18px; font-weight:bold; display:inline-block; text-align:center; }
+.btn { transition: all 0.3s; border-radius:12px; padding:12px 18px; font-weight:bold; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
 .btn:hover { transform: scale(1.1); box-shadow:0 0 30px #9b4dff; color:#fff; }
 
 /* Playlist flotante tipo mini app */
@@ -61,16 +57,23 @@ a{text-decoration:none;}
 #togglePlaylist { position:fixed; bottom:30px; right:30px; z-index:60; background:#1f1f1f; color:#fff; padding:14px 20px; border-radius:24px; cursor:pointer; font-weight:bold; box-shadow:0 12px 30px rgba(0,0,0,0.7); transition:all 0.3s;}
 #togglePlaylist:hover { transform: scale(1.1); box-shadow:0 15px 45px rgba(155,77,255,0.9); }
 
-/* Secciones y parallax sutil */
-section { padding:8rem 1rem; text-align:center; z-index:1; position:relative; }
+/* Secciones */
+section { padding:10rem 1rem; text-align:center; z-index:1; position:relative; }
+section + section { border-top:2px solid rgba(255,255,255,0.1); }
 header { padding:12rem 1rem; text-align:center; color:#fff; position:relative; }
-footer { padding:4rem 1rem; text-align:center; background: linear-gradient(135deg,#6b46c1,#3182ce); }
 
 /* Texto decorativo glow */
 .glow { text-shadow: 0 0 10px #9b4dff, 0 0 20px #9b4dff; }
 </style>
 </head>
 <body class="scroll-smooth">
+
+<!-- Navbar fija -->
+<nav>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#musica-aficiones">Música & Aficiones</a>
+  <a href="#redes-contacto">Redes</a>
+</nav>
 
 <div id="background"></div>
 
@@ -97,14 +100,14 @@ for(let i=0;i<50;i++){
 </header>
 
 <!-- Sobre mí -->
-<section class="fade-in">
+<section id="sobre-mi" class="fade-in">
 <h2 class="text-4xl md:text-5xl mb-6 glow">Sobre mí</h2>
 <p class="text-lg md:text-xl mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por tecnología, PCs, música y creatividad digital. Aquí comparto mis <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
 <p class="text-lg md:text-xl">También ofrezco <strong>servicios informáticos en Barcelona</strong>: limpieza, mantenimiento y asesoría tecnológica.</p>
 </section>
 
 <!-- Música y Aficiones -->
-<section class="fade-in">
+<section id="musica-aficiones" class="fade-in">
 <h2 class="text-4xl md:text-5xl mb-6 glow">Música y Aficiones</h2>
 <p class="text-lg md:text-xl mb-8">Algunas de mis aficiones y géneros musicales favoritos:</p>
 <div>
@@ -120,18 +123,19 @@ for(let i=0;i<50;i++){
 </section>
 
 <!-- Redes Sociales -->
-<section class="fade-in">
+<section id="redes-contacto" class="fade-in">
 <h2 class="text-4xl md:text-5xl mb-6 glow">Redes y Contacto</h2>
 <p class="text-lg md:text-xl mb-8">Conéctate conmigo en todas mis plataformas:</p>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 hover:bg-gray-600">Amazon Wishlist</a>
-<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 hover:bg-gray-600">Web Bere</a>
-<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 hover:bg-gray-600">Email</a>
-<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 hover:bg-blue-700">Facebook</a>
-<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 hover:bg-pink-600">Instagram</a>
-<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black hover:bg-gray-900">TikTok</a>
-<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 hover:bg-blue-500">X/Twitter</a>
-<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 hover:bg-red-700">YouTube</a>
+<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/amazon.png"/> Amazon Wishlist</a>
+<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/domain.png"/> Web Bere</a>
+<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/new-post.png"/> Email</a>
+<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 hover:bg-blue-700"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/> Facebook</a>
+<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 hover:bg-pink-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/instagram-new.png"/> Instagram</a>
+<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black hover:bg-gray-900"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/> TikTok</a>
+<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 hover:bg-blue-500"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/twitter.png"/> X/Twitter</a>
+<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 hover:bg-red-700"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/youtube-play.png"/> YouTube</a>
+<a href="https://www.vavel.com/es/author/l3xssj" target="_blank" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/news.png"/> Vavel</a>
 </div>
 </section>
 
@@ -140,7 +144,7 @@ for(let i=0;i<50;i++){
 <p>&copy; 2025 Alex González (Lex). Todos los derechos reservados.</p>
 </footer>
 
-<!-- Playlist flotante tipo mini-app -->
+<!-- Playlist flotante -->
 <div id="playlist" class="closed">
 <iframe 
     src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" 
@@ -153,7 +157,7 @@ for(let i=0;i<50;i++){
 <div id="togglePlaylist">🎵 Playlist</div>
 
 <script>
-// Animaciones al scroll
+// Animaciones scroll
 const faders=document.querySelectorAll('.fade-in');
 const appearOptions={threshold:0.1,rootMargin:"0px 0px -50px 0px"};
 const appearOnScroll=new IntersectionObserver((entries,observer)=>{
