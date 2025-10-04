@@ -5,96 +5,85 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lex - Alex González</title>
 <script src="https://cdn.tailwindcss.com"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.2.1/tilt.jquery.min.js">
 <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
 <style>
-/* Animaciones al scroll */
+/* Reset y tipografía */
+body { font-family: 'Inter', sans-serif; background-color: #0f0f0f; color: #fff; }
+
+/* Animaciones scroll */
 .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-/* Portfolio hover y tilt */
-.card { transition: transform 0.4s, box-shadow 0.4s; cursor: pointer; }
-.card:hover { transform: translateY(-10px) scale(1.03); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
-
-/* Botones redes con glow */
-.btn { transition: transform 0.3s, box-shadow 0.3s; }
-.btn:hover { transform: scale(1.1); box-shadow: 0 0 15px rgba(255,255,255,0.5); }
-
-/* Efectos badges */
+/* Badges animados */
 .badge { transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-.badge:hover { transform: scale(1.2) rotate(-5deg); box-shadow: 0 5px 15px rgba(255,255,255,0.3); }
+.badge:hover { transform: scale(1.15) translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.2); }
+
+/* Botones redes */
+.btn { transition: transform 0.3s, box-shadow 0.3s; border-radius: 12px; }
+.btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
 
 /* Playlist flotante */
-#playlist { position: fixed; bottom: 20px; right: 20px; width: 300px; max-width: 90%; border-radius: 12px; z-index: 50; }
+#playlist { position: fixed; bottom: 30px; right: 30px; width: 320px; max-width: 90%; border-radius: 16px; z-index: 50; box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: all 0.3s ease-in-out; }
+#playlist.closed { transform: translateX(120%); }
+
+/* Toggle button */
+#togglePlaylist { position: fixed; bottom: 30px; right: 30px; z-index: 60; background: #1f1f1f; color: #fff; padding: 10px 16px; border-radius: 12px; cursor: pointer; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: all 0.3s; }
+#togglePlaylist:hover { transform: scale(1.1); box-shadow: 0 15px 25px rgba(0,0,0,0.7); }
+
+/* Secciones con separación y degradados */
+section { padding: 8rem 1rem; }
+header { padding: 10rem 1rem; background: linear-gradient(135deg,#6b46c1,#3182ce); text-align:center; }
+h1, h2 { font-weight: 800; }
+p { line-height: 1.8; color: #e2e8f0; }
 </style>
 </head>
-<body class="bg-gray-900 text-white font-sans scroll-smooth">
+<body class="scroll-smooth">
 
 <!-- Header -->
-<header class="text-center py-20 bg-gradient-to-r from-blue-600 to-purple-600">
-<h1 class="text-6xl font-bold mb-2">Lex</h1>
-<p class="text-2xl">Alex González – Portfolio | Música | Aficiones</p>
+<header>
+<h1 class="text-6xl md:text-7xl mb-4">Lex</h1>
+<p class="text-2xl md:text-3xl">Alex González – Vida Digital | Música | Aficiones | Redes</p>
 </header>
 
 <!-- Sobre mí -->
-<section class="max-w-4xl mx-auto py-16 px-4 text-center fade-in">
-<h2 class="text-4xl font-semibold mb-6">Sobre mí</h2>
-<p class="text-lg mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, los PCs y la creatividad digital. Aquí comparto mis <strong>proyectos</strong>, <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
-<p class="text-lg">También ofrezco <strong>servicios informáticos en Barcelona</strong>: limpieza, mantenimiento y asesoría tecnológica.</p>
+<section class="max-w-3xl mx-auto text-center fade-in">
+<h2 class="text-4xl md:text-5xl mb-6">Sobre mí</h2>
+<p class="text-lg md:text-xl mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, PCs, música y creatividad digital. Aquí comparto mis <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
+<p class="text-lg md:text-xl">También ofrezco <strong>servicios informáticos en Barcelona</strong>: limpieza, mantenimiento y asesoría tecnológica.</p>
 </section>
 
-<!-- Portfolio -->
-<section class="py-16 px-4 fade-in">
-<div class="max-w-6xl mx-auto text-center">
-<h2 class="text-4xl font-semibold mb-12">Portfolio</h2>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-    <div class="card bg-gray-800 p-4 rounded-xl shadow-lg tilt" data-tilt data-tilt-max="15" data-tilt-speed="400">
-        <img src="https://via.placeholder.com/400x200" alt="Proyecto 1" class="rounded-lg mb-4">
-        <h3 class="text-2xl font-bold mb-2">Proyecto 1</h3>
-        <p>Descripción detallada de tu proyecto con tecnologías utilizadas.</p>
-    </div>
-    <div class="card bg-gray-800 p-4 rounded-xl shadow-lg tilt" data-tilt data-tilt-max="15" data-tilt-speed="400">
-        <img src="https://via.placeholder.com/400x200" alt="Proyecto 2" class="rounded-lg mb-4">
-        <h3 class="text-2xl font-bold mb-2">Proyecto 2</h3>
-        <p>Descripción detallada de tu proyecto con tecnologías utilizadas.</p>
-    </div>
-    <div class="card bg-gray-800 p-4 rounded-xl shadow-lg tilt" data-tilt data-tilt-max="15" data-tilt-speed="400">
-        <img src="https://via.placeholder.com/400x200" alt="Proyecto 3" class="rounded-lg mb-4">
-        <h3 class="text-2xl font-bold mb-2">Proyecto 3</h3>
-        <p>Descripción detallada de tu proyecto con tecnologías utilizadas.</p>
-    </div>
-</div>
-</div>
-</section>
-
-<!-- Aficiones -->
-<section class="py-16 px-4 fade-in">
+<!-- Música y aficiones -->
+<section class="fade-in">
 <div class="max-w-4xl mx-auto text-center">
-<h2 class="text-4xl font-semibold mb-6">Aficiones</h2>
-<p class="text-lg mb-6">Me encanta la tecnología, los videojuegos, la creatividad digital y mantenerme al día con tendencias de diseño y entretenimiento.</p>
-<div class="flex flex-wrap justify-center gap-6">
-    <span class="badge bg-blue-600 px-6 py-3 rounded-full font-semibold">Gaming 🎮</span>
-    <span class="badge bg-purple-600 px-6 py-3 rounded-full font-semibold">Tecnología 💻</span>
-    <span class="badge bg-pink-500 px-6 py-3 rounded-full font-semibold">Creatividad 🎨</span>
-    <span class="badge bg-yellow-500 px-6 py-3 rounded-full font-semibold">Música 🎵</span>
+<h2 class="text-4xl md:text-5xl mb-6">Música y Aficiones</h2>
+<p class="text-lg md:text-xl mb-8">Algunas de mis aficiones y géneros musicales favoritos:</p>
+<div class="flex flex-wrap justify-center gap-4">
+<span class="badge bg-green-500 px-6 py-3 font-semibold">Hip-Hop 🎤</span>
+<span class="badge bg-pink-500 px-6 py-3 font-semibold">Pop 🎶</span>
+<span class="badge bg-purple-600 px-6 py-3 font-semibold">Electrónica 🎧</span>
+<span class="badge bg-yellow-500 px-6 py-3 font-semibold">Trap 🔥</span>
+<span class="badge bg-blue-600 px-6 py-3 font-semibold">Gaming 🎮</span>
+<span class="badge bg-purple-700 px-6 py-3 font-semibold">Tecnología 💻</span>
+<span class="badge bg-pink-600 px-6 py-3 font-semibold">Creatividad 🎨</span>
+<span class="badge bg-yellow-400 px-6 py-3 font-semibold">Música 🎵</span>
 </div>
 </div>
 </section>
 
 <!-- Redes Sociales -->
-<section class="bg-gray-800 py-16 px-4 fade-in">
-<div class="max-w-6xl mx-auto text-center">
-<h2 class="text-4xl font-semibold mb-6">Redes y Contacto</h2>
-<p class="text-lg mb-8">Conéctate conmigo en todas mis plataformas:</p>
+<section class="fade-in bg-gray-900">
+<div class="max-w-5xl mx-auto text-center">
+<h2 class="text-4xl md:text-5xl mb-6">Redes y Contacto</h2>
+<p class="text-lg md:text-xl mb-8">Conéctate conmigo en todas mis plataformas:</p>
 <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 p-4 rounded-lg hover:bg-gray-600">Amazon Wishlist</a>
-<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 p-4 rounded-lg hover:bg-gray-600">Web Bere</a>
-<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 p-4 rounded-lg hover:bg-gray-600">Email</a>
-<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 p-4 rounded-lg hover:bg-blue-700">Facebook</a>
-<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 p-4 rounded-lg hover:bg-pink-600">Instagram</a>
-<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black p-4 rounded-lg hover:bg-gray-900">TikTok</a>
-<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 p-4 rounded-lg hover:bg-blue-500">X/Twitter</a>
-<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 p-4 rounded-lg hover:bg-red-700">YouTube</a>
+<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 p-4 hover:bg-gray-600">Amazon Wishlist</a>
+<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 p-4 hover:bg-gray-600">Web Bere</a>
+<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 p-4 hover:bg-gray-600">Email</a>
+<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 p-4 hover:bg-blue-700">Facebook</a>
+<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 p-4 hover:bg-pink-600">Instagram</a>
+<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black p-4 hover:bg-gray-900">TikTok</a>
+<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 p-4 hover:bg-blue-500">X/Twitter</a>
+<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 p-4 hover:bg-red-700">YouTube</a>
 </div>
 </div>
 </section>
@@ -104,7 +93,7 @@
 <p>&copy; 2025 Alex González (Lex). Todos los derechos reservados.</p>
 </footer>
 
-<!-- Playlist flotante -->
+<!-- Playlist flotante con toggle -->
 <div id="playlist">
 <iframe 
     src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" 
@@ -112,20 +101,13 @@
     height="380" 
     frameborder="0" 
     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    class="rounded-lg shadow-lg">
+    class="rounded-lg">
 </iframe>
 </div>
+<div id="togglePlaylist">🎵 Playlist</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.0/vanilla-tilt.min.js"></script>
 <script>
-VanillaTilt.init(document.querySelectorAll(".tilt"), {
-    max: 15,
-    speed: 400,
-    glare: true,
-    "max-glare": 0.3,
-});
-
-// Animación al scroll
+// Animación scroll
 const faders = document.querySelectorAll('.fade-in');
 const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
 const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
@@ -136,6 +118,13 @@ const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll
     });
 }, appearOptions);
 faders.forEach(fader => appearOnScroll.observe(fader));
+
+// Toggle playlist
+const playlist = document.getElementById('playlist');
+const toggleBtn = document.getElementById('togglePlaylist');
+toggleBtn.addEventListener('click', () => {
+    playlist.classList.toggle('closed');
+});
 </script>
 
 </body>
