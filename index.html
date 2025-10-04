@@ -5,126 +5,170 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lex - Alex González</title>
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
 <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
 <style>
-/* Reset y tipografía */
-body { font-family: 'Inter', sans-serif; background-color: #0f0f0f; color: #fff; }
+/* Fonts y colores */
+body { margin:0; padding:0; font-family:'Open Sans', sans-serif; background:#0f0f0f; color:#e0e0e0; overflow-x:hidden;}
+h1,h2,h3{font-family:'Roboto',sans-serif;}
+a{text-decoration:none;}
 
-/* Animaciones scroll */
-.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 1s ease-out, transform 1s ease-out; }
-.fade-in.visible { opacity: 1; transform: translateY(0); }
+/* Fondo animado gradient wave con partículas */
+#background {
+  position:fixed;
+  top:0; left:0; width:100%; height:100%; z-index:-2;
+  background: linear-gradient(270deg, #6b46c1, #3182ce, #9b4dff, #ff6ec7);
+  background-size: 800% 800%;
+  animation: gradientBG 30s ease infinite;
+  overflow:hidden;
+}
+@keyframes gradientBG {
+  0%{background-position:0% 50%;}
+  50%{background-position:100% 50%;}
+  100%{background-position:0% 50%;}
+}
 
-/* Badges animados */
-.badge { transition: transform 0.3s, box-shadow 0.3s; cursor: pointer; }
-.badge:hover { transform: scale(1.15) translateY(-3px); box-shadow: 0 8px 20px rgba(255,255,255,0.2); }
+/* Partículas flotantes */
+.particle {
+  position:absolute;
+  border-radius:50%;
+  opacity:0.5;
+  animation: floatParticles linear infinite;
+}
+@keyframes floatParticles {
+  0%{transform: translateY(0) translateX(0);}
+  50%{transform: translateY(-50px) translateX(20px);}
+  100%{transform: translateY(0) translateX(0);}
+}
 
-/* Botones redes */
-.btn { transition: transform 0.3s, box-shadow 0.3s; border-radius: 12px; }
-.btn:hover { transform: scale(1.05); box-shadow: 0 0 15px rgba(255,255,255,0.4); }
+/* Animaciones al scroll */
+.fade-in { opacity:0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out;}
+.fade-in.visible { opacity:1; transform: translateY(0); }
 
-/* Playlist flotante */
-#playlist { position: fixed; bottom: 30px; right: 30px; width: 320px; max-width: 90%; border-radius: 16px; z-index: 50; box-shadow: 0 20px 40px rgba(0,0,0,0.6); transition: all 0.3s ease-in-out; }
+/* Badges con partículas y glow */
+.badge { position:relative; display:inline-block; margin:5px; padding:12px 20px; border-radius:9999px; font-weight:bold; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s;}
+.badge:hover { transform: scale(1.25) translateY(-5px); box-shadow:0 10px 40px rgba(155,77,255,0.8);}
+.badge::after { content:''; position:absolute; width:100%; height:100%; top:0; left:0; border-radius:9999px; box-shadow:0 0 25px rgba(155,77,255,0.5); opacity:0; transition:opacity 0.3s;}
+.badge:hover::after { opacity:1; }
+
+/* Botones redes sociales */
+.btn { transition: all 0.3s; border-radius:12px; padding:12px 18px; font-weight:bold; display:inline-block; text-align:center; }
+.btn:hover { transform: scale(1.1); box-shadow:0 0 30px #9b4dff; color:#fff; }
+
+/* Playlist flotante tipo mini app */
+#playlist { position:fixed; bottom:30px; right:30px; width:360px; max-width:90%; border-radius:24px; box-shadow:0 25px 60px rgba(0,0,0,0.7); z-index:50; overflow:hidden; transition:all 0.4s; background:#1f1f1f; }
 #playlist.closed { transform: translateX(120%); }
+#togglePlaylist { position:fixed; bottom:30px; right:30px; z-index:60; background:#1f1f1f; color:#fff; padding:14px 20px; border-radius:24px; cursor:pointer; font-weight:bold; box-shadow:0 12px 30px rgba(0,0,0,0.7); transition:all 0.3s;}
+#togglePlaylist:hover { transform: scale(1.1); box-shadow:0 15px 45px rgba(155,77,255,0.9); }
 
-/* Toggle button */
-#togglePlaylist { position: fixed; bottom: 30px; right: 30px; z-index: 60; background: #1f1f1f; color: #fff; padding: 10px 16px; border-radius: 12px; cursor: pointer; font-weight: bold; box-shadow: 0 10px 20px rgba(0,0,0,0.5); transition: all 0.3s; }
-#togglePlaylist:hover { transform: scale(1.1); box-shadow: 0 15px 25px rgba(0,0,0,0.7); }
+/* Secciones y parallax sutil */
+section { padding:8rem 1rem; text-align:center; z-index:1; position:relative; }
+header { padding:12rem 1rem; text-align:center; color:#fff; position:relative; }
+footer { padding:4rem 1rem; text-align:center; background: linear-gradient(135deg,#6b46c1,#3182ce); }
 
-/* Secciones con separación y degradados */
-section { padding: 8rem 1rem; }
-header { padding: 10rem 1rem; background: linear-gradient(135deg,#6b46c1,#3182ce); text-align:center; }
-h1, h2 { font-weight: 800; }
-p { line-height: 1.8; color: #e2e8f0; }
+/* Texto decorativo glow */
+.glow { text-shadow: 0 0 10px #9b4dff, 0 0 20px #9b4dff; }
 </style>
 </head>
 <body class="scroll-smooth">
 
+<div id="background"></div>
+
+<!-- Partículas aleatorias -->
+<script>
+for(let i=0;i<50;i++){
+  const particle=document.createElement('div');
+  particle.className='particle';
+  const size=Math.random()*6+2+'px';
+  particle.style.width=size;
+  particle.style.height=size;
+  particle.style.top=Math.random()*100+'%';
+  particle.style.left=Math.random()*100+'%';
+  particle.style.backgroundColor='rgba(155,77,255,'+(Math.random()*0.6+0.2)+')';
+  particle.style.animationDuration=(Math.random()*15+5)+'s';
+  document.body.appendChild(particle);
+}
+</script>
+
 <!-- Header -->
 <header>
-<h1 class="text-6xl md:text-7xl mb-4">Lex</h1>
-<p class="text-2xl md:text-3xl">Alex González – Vida Digital | Música | Aficiones | Redes</p>
+<h1 class="text-6xl md:text-7xl mb-4 fade-in glow">Lex</h1>
+<p class="text-2xl md:text-3xl fade-in">Alex González – Vida Digital | Música | Aficiones | Redes</p>
 </header>
 
 <!-- Sobre mí -->
-<section class="max-w-3xl mx-auto text-center fade-in">
-<h2 class="text-4xl md:text-5xl mb-6">Sobre mí</h2>
-<p class="text-lg md:text-xl mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, PCs, música y creatividad digital. Aquí comparto mis <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
+<section class="fade-in">
+<h2 class="text-4xl md:text-5xl mb-6 glow">Sobre mí</h2>
+<p class="text-lg md:text-xl mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por tecnología, PCs, música y creatividad digital. Aquí comparto mis <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
 <p class="text-lg md:text-xl">También ofrezco <strong>servicios informáticos en Barcelona</strong>: limpieza, mantenimiento y asesoría tecnológica.</p>
 </section>
 
-<!-- Música y aficiones -->
+<!-- Música y Aficiones -->
 <section class="fade-in">
-<div class="max-w-4xl mx-auto text-center">
-<h2 class="text-4xl md:text-5xl mb-6">Música y Aficiones</h2>
+<h2 class="text-4xl md:text-5xl mb-6 glow">Música y Aficiones</h2>
 <p class="text-lg md:text-xl mb-8">Algunas de mis aficiones y géneros musicales favoritos:</p>
-<div class="flex flex-wrap justify-center gap-4">
-<span class="badge bg-green-500 px-6 py-3 font-semibold">Hip-Hop 🎤</span>
-<span class="badge bg-pink-500 px-6 py-3 font-semibold">Pop 🎶</span>
-<span class="badge bg-purple-600 px-6 py-3 font-semibold">Electrónica 🎧</span>
-<span class="badge bg-yellow-500 px-6 py-3 font-semibold">Trap 🔥</span>
-<span class="badge bg-blue-600 px-6 py-3 font-semibold">Gaming 🎮</span>
-<span class="badge bg-purple-700 px-6 py-3 font-semibold">Tecnología 💻</span>
-<span class="badge bg-pink-600 px-6 py-3 font-semibold">Creatividad 🎨</span>
-<span class="badge bg-yellow-400 px-6 py-3 font-semibold">Música 🎵</span>
-</div>
+<div>
+<span class="badge bg-green-500">Hip-Hop 🎤</span>
+<span class="badge bg-pink-500">Pop 🎶</span>
+<span class="badge bg-purple-600">Electrónica 🎧</span>
+<span class="badge bg-yellow-500">Trap 🔥</span>
+<span class="badge bg-blue-600">Gaming 🎮</span>
+<span class="badge bg-purple-700">Tecnología 💻</span>
+<span class="badge bg-pink-600">Creatividad 🎨</span>
+<span class="badge bg-yellow-400">Música 🎵</span>
 </div>
 </section>
 
 <!-- Redes Sociales -->
-<section class="fade-in bg-gray-900">
-<div class="max-w-5xl mx-auto text-center">
-<h2 class="text-4xl md:text-5xl mb-6">Redes y Contacto</h2>
+<section class="fade-in">
+<h2 class="text-4xl md:text-5xl mb-6 glow">Redes y Contacto</h2>
 <p class="text-lg md:text-xl mb-8">Conéctate conmigo en todas mis plataformas:</p>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 p-4 hover:bg-gray-600">Amazon Wishlist</a>
-<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 p-4 hover:bg-gray-600">Web Bere</a>
-<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 p-4 hover:bg-gray-600">Email</a>
-<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 p-4 hover:bg-blue-700">Facebook</a>
-<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 p-4 hover:bg-pink-600">Instagram</a>
-<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black p-4 hover:bg-gray-900">TikTok</a>
-<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 p-4 hover:bg-blue-500">X/Twitter</a>
-<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 p-4 hover:bg-red-700">YouTube</a>
-</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+<a href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank" class="btn bg-gray-700 hover:bg-gray-600">Amazon Wishlist</a>
+<a href="https://bere.al/aaleeexxgonzalez" target="_blank" class="btn bg-gray-700 hover:bg-gray-600">Web Bere</a>
+<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 hover:bg-gray-600">Email</a>
+<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 hover:bg-blue-700">Facebook</a>
+<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 hover:bg-pink-600">Instagram</a>
+<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black hover:bg-gray-900">TikTok</a>
+<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 hover:bg-blue-500">X/Twitter</a>
+<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 hover:bg-red-700">YouTube</a>
 </div>
 </section>
 
 <!-- Footer -->
-<footer class="text-center py-8 bg-gradient-to-r from-blue-600 to-purple-600 mt-12">
+<footer>
 <p>&copy; 2025 Alex González (Lex). Todos los derechos reservados.</p>
 </footer>
 
-<!-- Playlist flotante con toggle -->
-<div id="playlist">
+<!-- Playlist flotante tipo mini-app -->
+<div id="playlist" class="closed">
 <iframe 
     src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" 
     width="100%" 
     height="380" 
     frameborder="0" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-    class="rounded-lg">
+    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
 </iframe>
 </div>
 <div id="togglePlaylist">🎵 Playlist</div>
 
 <script>
-// Animación scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll){
-    entries.forEach(entry => {
-        if(!entry.isIntersecting) return;
-        entry.target.classList.add('visible');
-        appearOnScroll.unobserve(entry.target);
-    });
-}, appearOptions);
-faders.forEach(fader => appearOnScroll.observe(fader));
+// Animaciones al scroll
+const faders=document.querySelectorAll('.fade-in');
+const appearOptions={threshold:0.1,rootMargin:"0px 0px -50px 0px"};
+const appearOnScroll=new IntersectionObserver((entries,observer)=>{
+entries.forEach(entry=>{
+if(!entry.isIntersecting) return;
+entry.target.classList.add('visible');
+observer.unobserve(entry.target);
+});
+},appearOptions);
+faders.forEach(fader=>appearOnScroll.observe(fader));
 
 // Toggle playlist
-const playlist = document.getElementById('playlist');
-const toggleBtn = document.getElementById('togglePlaylist');
-toggleBtn.addEventListener('click', () => {
-    playlist.classList.toggle('closed');
-});
+const playlist=document.getElementById('playlist');
+const toggleBtn=document.getElementById('togglePlaylist');
+toggleBtn.addEventListener('click',()=>{playlist.classList.toggle('closed');});
 </script>
 
 </body>
