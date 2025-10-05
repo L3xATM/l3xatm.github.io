@@ -1,58 +1,32 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"> 
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lex - Web Personal</title>
+  <title>Lex - Inicio</title>
   <link rel="stylesheet" href="style.css">
-  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <!-- Loader -->
-  <div id="loader">
-    <div class="loader-text">Lex</div>
-  </div>
-
-  <!-- Partículas de fondo -->
   <canvas id="particles"></canvas>
 
-  <!-- Header -->
-  <header>
-    <div class="brand">Lex</div>
+  <div class="container fade-in">
+    <h1 class="glow">Bienvenido a Lex</h1>
+    <p class="subtitle fade-up">Explora mi mundo digital y musical</p>
     <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="sobre.html">Sobre mí</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="musica.html">Música</a></li>
-        <li><a href="redes.html">Redes</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
+      <a href="sobre.html" class="glow-btn fade-up">Sobre mí</a>
+      <a href="socials.html" class="glow-btn fade-up" style="animation-delay:0.2s">Redes</a>
+      <a href="contacto.html" class="glow-btn fade-up" style="animation-delay:0.4s">Contacto</a>
     </nav>
-  </header>
 
-  <!-- Hero / Inicio -->
-  <section class="section hero fade-in">
-    <h1>Bienvenido a mi mundo digital</h1>
-    <p>Descubre quién soy, lo que hago y acompáñame en mis proyectos.</p>
-    <a href="sobre.html" class="btn">Explorar</a>
-  </section>
+    <div class="music-control fade-up" style="animation-delay:0.6s">
+      <button id="toggle-music" class="glow-btn">⏯ Música</button>
+    </div>
+  </div>
 
-  <footer>
-    <p>© 2025 Lex - Todos los derechos reservados</p>
-  </footer>
+  <audio id="background-music" loop>
+    <source src="vuelta_a_la_luna.mp3" type="audio/mpeg">
+  </audio>
 
-  <script>
-    // Loader
-    window.addEventListener('load', () => {
-      const loader = document.getElementById('loader');
-      loader.classList.add('fade-out');
-      setTimeout(() => {
-        loader.style.display = 'none';
-      }, 1000);
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
