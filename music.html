@@ -9,6 +9,7 @@
   <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
 </head>
 <body>
+
 <header class="site-header">
   <nav class="nav">
     <a class="nav-logo" href="index.html">Lex</a>
@@ -22,35 +23,31 @@
   </nav>
 </header>
 
-<div id="bg-wave"></div>
-<div id="bg-anim" aria-hidden="true"></div>
-<canvas id="particles" aria-hidden="true"></canvas>
-
 <main class="page">
-  <section class="content fade-in">
+  <section class="content card fade-in">
     <h2>Mi Playlist Principal</h2>
-    <p class="muted">Escucha mi selección: siempre actual y con el flow que me mola.</p>
+    <p class="muted">Escucha mi selección de canciones favorita, siempre actual.</p>
 
-    <div class="card" style="margin-top:1.2rem;">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+    <div class="playlist-card">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
   </section>
 </main>
 
 <audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
-<div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
-<button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
-<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">✈</a>
+<div id="audioControl" class="floating control">▶</div>
+<button id="togglePlaylist" class="floating right">🎵</button>
+<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank">✈</a>
 
-<div id="playlist" class="panel closed" aria-hidden="true">
+<div id="playlist" class="panel closed">
   <div class="panel-head">
-    <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png" alt="spotify"> Mi Playlist</div>
+    <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png"> Mi Playlist</div>
     <button id="closePlaylist" class="panel-close">✕</button>
   </div>
   <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 </div>
 
-<div id="cursor" class="cursor" aria-hidden="true"></div>
+<div id="cursor" class="cursor"></div>
 <script src="script.js"></script>
 </body>
 </html>
