@@ -1,167 +1,210 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lex - Alex González</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Open+Sans&display=swap" rel="stylesheet">
-<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
-<style>
-body { margin:0; padding:0; font-family:'Open Sans', sans-serif; background:#0f0f0f; color:#e0e0e0; overflow-x:hidden; scroll-behavior:smooth;}
-h1,h2,h3{font-family:'Roboto',sans-serif;}
-a{text-decoration:none;}
-nav {
-  position:fixed; top:0; width:100%; background:#121212cc; backdrop-filter:blur(10px); z-index:100; display:flex; justify-content:center; padding:1rem 0;
-}
-nav a { margin:0 15px; color:#e0e0e0; font-weight:bold; transition: all 0.3s; }
-nav a:hover { color:#9b4dff; transform:scale(1.1); }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lex | Web Personal</title>
+  <style>
+    /* ===== Reset ===== */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #fff;
+      background: linear-gradient(-45deg, #0f0c29, #302b63, #24243e);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
+      overflow-x: hidden;
+    }
+    @keyframes gradientBG {
+      0% {background-position:0% 50%}
+      50% {background-position:100% 50%}
+      100% {background-position:0% 50%}
+    }
 
-#background {
-  position:fixed; top:0; left:0; width:100%; height:100%; z-index:-2;
-  background: radial-gradient(circle at center, #6b46c1, #3182ce, #ff6ec7, #9b4dff);
-  background-size: 200% 200%;
-  animation: bgAnimation 20s ease infinite alternate;
-  overflow:hidden;
-}
-@keyframes bgAnimation {
-  0%{background-position:0% 50%;}
-  50%{background-position:100% 50%;}
-  100%{background-position:0% 50%;}
-}
+    /* ===== Navbar ===== */
+    nav {
+      position:fixed; top:0; left:0; width:100%;
+      display:flex; justify-content:space-between; align-items:center;
+      padding:15px 40px; z-index:1000;
+      backdrop-filter: blur(10px); background:rgba(0,0,0,0.3);
+    }
+    nav a {
+      margin:0 15px; text-decoration:none; color:#fff; font-weight:500;
+      transition:0.3s;
+    }
+    nav a:hover { color:#1DB954; }
 
-.particle { position:absolute; border-radius:50%; opacity:0.5; animation: floatParticles linear infinite; }
-@keyframes floatParticles { 0%{transform:translateY(0) translateX(0);} 50%{transform:translateY(-50px) translateX(20px);} 100%{transform:translateY(0) translateX(0);} }
+    /* ===== Hero ===== */
+    header {
+      height:100vh; display:flex; flex-direction:column;
+      justify-content:center; align-items:center; text-align:center;
+    }
+    header h1 {
+      font-size:3rem; margin-bottom:20px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px #1DB954; }
+      to { text-shadow: 0 0 20px #1DB954, 0 0 40px #1DB954; }
+    }
+    header p { font-size:1.2rem; opacity:0.8; }
 
-.fade-in { opacity:0; transform: translateY(30px); transition: opacity 1s ease-out, transform 1s ease-out; }
-.fade-in.visible { opacity:1; transform: translateY(0); }
+    /* ===== Sections ===== */
+    section {
+      min-height:100vh; padding:100px 20px; text-align:center;
+    }
+    h2 {
+      font-size:2.5rem; margin-bottom:40px;
+    }
 
-.badge { position:relative; display:inline-block; margin:5px; padding:12px 20px; border-radius:9999px; font-weight:bold; cursor:pointer; transition: transform 0.3s, box-shadow 0.3s;}
-.badge:hover { transform: scale(1.25) translateY(-5px); box-shadow:0 10px 40px rgba(155,77,255,0.8);}
-.badge::after { content:''; position:absolute; width:100%; height:100%; top:0; left:0; border-radius:9999px; box-shadow:0 0 25px rgba(155,77,255,0.5); opacity:0; transition:opacity 0.3s;}
-.badge:hover::after { opacity:1; }
+    /* ===== Cards ===== */
+    .card {
+      background: rgba(255,255,255,0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding:20px;
+      margin:20px;
+      display:inline-block;
+      width:250px;
+      transition: transform 0.3s;
+    }
+    .card:hover { transform: translateY(-10px); }
 
-.btn { transition: all 0.3s; border-radius:12px; padding:12px 18px; font-weight:bold; display:inline-flex; align-items:center; justify-content:center; gap:8px; }
-.btn:hover { transform: scale(1.1); box-shadow:0 0 30px #9b4dff; color:#fff; }
+    /* ===== Redes ===== */
+    .socials {
+      display:flex; flex-wrap:wrap; justify-content:center;
+    }
+    .socials a {
+      margin:10px;
+      display:flex; align-items:center; gap:10px;
+      padding:12px 18px;
+      border-radius:12px;
+      background:rgba(255,255,255,0.1);
+      text-decoration:none; color:#fff; font-weight:500;
+      transition:0.3s;
+    }
+    .socials a:hover { background:#1DB954; }
 
-#playlist { position:fixed; bottom:30px; right:30px; width:360px; max-width:90%; border-radius:24px; box-shadow:0 25px 60px rgba(0,0,0,0.7); z-index:50; overflow:hidden; transition:all 0.4s; background:#1f1f1f; }
-#playlist.closed { transform: translateX(120%); }
-#togglePlaylist { position:fixed; bottom:30px; right:30px; z-index:60; background:#1f1f1f; color:#fff; padding:14px 20px; border-radius:24px; cursor:pointer; font-weight:bold; box-shadow:0 12px 30px rgba(0,0,0,0.7); transition:all 0.3s;}
-#togglePlaylist:hover { transform: scale(1.1); box-shadow:0 15px 45px rgba(155,77,255,0.9); }
+    /* ===== Playlist & Música ===== */
+    .spotify iframe {
+      border-radius:20px;
+    }
 
-section { padding:10rem 1rem; text-align:center; z-index:1; position:relative; }
-section + section { border-top:2px solid rgba(255,255,255,0.1); }
-header { padding:12rem 1rem; text-align:center; color:#fff; position:relative; }
-.glow { text-shadow: 0 0 10px #9b4dff, 0 0 20px #9b4dff; }
-</style>
+    /* ===== Audio control ===== */
+    #audioControl {
+      position:fixed; bottom:20px; left:20px;
+      background:rgba(0,0,0,0.6);
+      padding:10px 15px; border-radius:50%;
+      cursor:pointer; z-index:2000;
+      transition:0.3s;
+    }
+    #audioControl:hover { background:#1DB954; }
+
+    /* ===== Telegram Button ===== */
+    #telegramBtn {
+      position:fixed; bottom:20px; right:20px;
+      background:#0088cc; padding:15px 20px;
+      border-radius:50%; color:#fff;
+      font-size:20px; text-decoration:none;
+      z-index:2000; transition:0.3s;
+    }
+    #telegramBtn:hover { transform: scale(1.1); }
+  </style>
 </head>
-<body class="scroll-smooth">
+<body>
 
-<nav>
-  <a href="#sobre-mi">Sobre mí</a>
-  <a href="#musica-aficiones">Música & Aficiones</a>
-  <a href="#mis-cantantes">Mis Cantantes</a>
-  <a href="#redes-contacto">Redes</a>
-</nav>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo"><a href="#">Lex</a></div>
+    <div>
+      <a href="#about">Sobre mí</a>
+      <a href="#music">Música</a>
+      <a href="#artists">Artistas</a>
+      <a href="#socials">Redes</a>
+    </div>
+  </nav>
 
-<div id="background"></div>
+  <!-- Hero -->
+  <header>
+    <h1>Alex González — Lex</h1>
+    <p>Música 🎵 | Tech 💻 | Creatividad 🚀</p>
+  </header>
 
-<script>
-for(let i=0;i<50;i++){
-  const particle=document.createElement('div');
-  particle.className='particle';
-  const size=Math.random()*6+2+'px';
-  particle.style.width=size;
-  particle.style.height=size;
-  particle.style.top=Math.random()*100+'%';
-  particle.style.left=Math.random()*100+'%';
-  particle.style.backgroundColor='rgba(155,77,255,'+(Math.random()*0.6+0.2)+')';
-  particle.style.animationDuration=(Math.random()*15+5)+'s';
-  document.body.appendChild(particle);
-}
-</script>
+  <!-- Sobre mí -->
+  <section id="about">
+    <h2>Sobre mí</h2>
+    <p>Soy Alex, aunque muchos me conocen como Lex. Apasionado de la informática, la música y todo lo creativo. Esta web es un reflejo de mis gustos, mis pasiones y un poquito de mi vida digital.</p>
+  </section>
 
-<header>
-<h1 class="text-6xl md:text-7xl mb-4 fade-in glow">Lex</h1>
-<p class="text-2xl md:text-3xl fade-in">Alex González – Vida Digital | Música | Aficiones | Redes</p>
-</header>
+  <!-- Música -->
+  <section id="music">
+    <h2>Mi Playlist</h2>
+    <div class="spotify">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="80%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+  </section>
 
-<section id="sobre-mi" class="fade-in">
-<h2 class="text-4xl md:text-5xl mb-6 glow">Sobre mí</h2>
-<p class="text-lg md:text-xl mb-4">¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por tecnología, PCs, música y creatividad digital. Aquí comparto mis <strong>gustos musicales</strong> y <strong>aficiones personales</strong>.</p>
-<p class="text-lg md:text-xl">También ofrezco <strong>servicios informáticos en Barcelona</strong>: limpieza, mantenimiento y asesoría tecnológica.</p>
-</section>
+  <!-- Artistas -->
+  <section id="artists">
+    <h2>Mis Artistas Favoritos</h2>
+    <div>
+      <div class="card">
+        <h3>DeeBaby</h3>
+        <a href="https://open.spotify.com/artist/1bAftSH8umNcGZ0uyV7LMg" target="_blank">Spotify</a>
+      </div>
+      <div class="card">
+        <h3>YSY A</h3>
+        <a href="https://open.spotify.com/artist/7D62OQfwvslnxJn9DkZm2F" target="_blank">Spotify</a>
+      </div>
+      <div class="card">
+        <h3>Bhavi</h3>
+        <a href="https://open.spotify.com/artist/1nwjHzOUQZsNYX8xoWiGVC" target="_blank">Spotify</a>
+      </div>
+      <div class="card">
+        <h3>Duki</h3>
+        <a href="https://open.spotify.com/artist/2qWK8K2Jfh67UqtwY8tCW6" target="_blank">Spotify</a>
+      </div>
+    </div>
+  </section>
 
-<section id="musica-aficiones" class="fade-in">
-<h2 class="text-4xl md:text-5xl mb-6 glow">Música y Aficiones</h2>
-<p class="text-lg md:text-xl mb-8">Algunas de mis aficiones y géneros musicales favoritos:</p>
-<div>
-<span class="badge bg-green-500">Hip-Hop 🎤</span>
-<span class="badge bg-pink-500">Pop 🎶</span>
-<span class="badge bg-purple-600">Electrónica 🎧</span>
-<span class="badge bg-yellow-500">Trap 🔥</span>
-<span class="badge bg-blue-600">Gaming 🎮</span>
-<span class="badge bg-purple-700">Tecnología 💻</span>
-<span class="badge bg-pink-600">Creatividad 🎨</span>
-<span class="badge bg-yellow-400">Música 🎵</span>
-</div>
-</section>
+  <!-- Redes -->
+  <section id="socials">
+    <h2>Mis Redes</h2>
+    <div class="socials">
+      <a href="https://github.com/L3xATM" target="_blank">GitHub</a>
+      <a href="https://x.com/l3xssj" target="_blank">Twitter/X</a>
+      <a href="https://instagram.com/l3xssj" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank">TikTok</a>
+      <a href="https://www.youtube.com/@l3xssj" target="_blank">YouTube</a>
+      <a href="https://www.facebook.com/lex.45152" target="_blank">Facebook</a>
+      <a href="mailto:contactol3x@gmail.com">Email</a>
+      <a href="discordapp.com/users/L3x#3052" target="_blank">Discord</a>
+    </div>
+  </section>
 
-<section id="mis-cantantes" class="fade-in">
-<h2 class="text-4xl md:text-5xl mb-6 glow">Mis Cantantes Favoritos</h2>
-<div class="flex flex-wrap justify-center gap-6">
-<a href="https://open.spotify.com/artist/1bAftSH8umNcGZ0uyV7LMg" target="_blank" class="btn bg-purple-600 hover:bg-purple-700">Duki</a>
-<a href="https://open.spotify.com/artist/7D62OQfwvslnxJn9DkZm2F" target="_blank" class="btn bg-pink-500 hover:bg-pink-600">Pole.</a>
-<a href="https://open.spotify.com/artist/1nwjHzOUQZsNYX8xoWiGVC" target="_blank" class="btn bg-blue-500 hover:bg-blue-600">Funzo & Baby Loud</a>
-<a href="https://open.spotify.com/artist/2qWK8K2Jfh67UqtwY8tCW6" target="_blank" class="btn bg-yellow-500 hover:bg-yellow-600">YSY A</a>
-</div>
-</section>
+  <!-- Telegram Button -->
+  <a id="telegramBtn" href="https://t.me/l3xssj" target="_blank">✈</a>
 
-<section id="redes-contacto" class="fade-in">
-<h2 class="text-4xl md:text-5xl mb-6 glow">Redes y Contacto</h2>
-<p class="text-lg md:text-xl mb-8">Conéctate conmigo en todas mis plataformas:</p>
-<div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-<a href="mailto:contactol3x@gmail.com" class="btn bg-gray-700 hover:bg-gray-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/new-post.png"/> Email</a>
-<a href="https://t.me/l3xssj" target="_blank" class="btn bg-blue-400 hover:bg-blue-500"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/telegram.png"/> Telegram</a>
-<a href="https://www.facebook.com/lex.45152" target="_blank" class="btn bg-blue-600 hover:bg-blue-700"><img src="https://img.icons8.com/ios-filled/24/ffffff/facebook-new.png"/> Facebook</a>
-<a href="https://instagram.com/l3xssj" target="_blank" class="btn bg-pink-500 hover:bg-pink-600"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/instagram-new.png"/> Instagram</a>
-<a href="https://tiktok.com/@aaleeexxgonzalez" target="_blank" class="btn bg-black hover:bg-gray-900"><img src="https://img.icons8.com/ios-filled/24/ffffff/tiktok.png"/> TikTok</a>
-<a href="https://x.com/l3xssj" target="_blank" class="btn bg-blue-400 hover:bg-blue-500"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/twitter.png"/> X/Twitter</a>
-<a href="https://www.youtube.com/@l3xssj" target="_blank" class="btn bg-red-600 hover:bg-red-700"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/youtube-play.png"/> YouTube</a>
-</div>
-</section>
+  <!-- Audio Control -->
+  <div id="audioControl">🔊</div>
+  <audio id="bgAudio" src="vuelta_a_la_luna.mp3" loop></audio>
 
-<footer>
-<p>&copy; 2025 Alex González (Lex). Todos los derechos reservados.</p>
-</footer>
+  <script>
+    // Background music
+    const audio = document.getElementById('bgAudio');
+    const control = document.getElementById('audioControl');
+    let playing = false;
 
-<div id="playlist" class="closed">
-<iframe 
-    src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" 
-    width="100%" 
-    height="380" 
-    frameborder="0" 
-    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
-</iframe>
-</div>
-<div id="togglePlaylist">🎵 Playlist</div>
-
-<script>
-const faders=document.querySelectorAll('.fade-in');
-const appearOptions={threshold:0.1,rootMargin:"0px 0px -50px 0px"};
-const appearOnScroll=new IntersectionObserver((entries,observer)=>{
-entries.forEach(entry=>{
-if(!entry.isIntersecting) return;
-entry.target.classList.add('visible');
-observer.unobserve(entry.target);
-});
-},appearOptions);
-faders.forEach(fader=>appearOnScroll.observe(fader));
-
-const playlist=document.getElementById('playlist');
-const toggleBtn=document.getElementById('togglePlaylist');
-toggleBtn.addEventListener('click',()=>{playlist.classList.toggle('closed');});
-</script>
-
+    control.addEventListener('click', () => {
+      if(!playing){
+        audio.play();
+        control.textContent = "🔈";
+      } else {
+        audio.pause();
+        control.textContent = "🔊";
+      }
+      playing = !playing;
+    });
+  </script>
 </body>
 </html>
