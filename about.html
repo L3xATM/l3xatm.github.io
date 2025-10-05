@@ -4,20 +4,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Lex — Alex González</title>
-
-  <!-- Styles & fonts -->
-
+  <title>Sobre mí — Lex</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-
-  <!-- favicon -->
-
   <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
 </head>
 <body>
 
-  <!-- shared navbar -->
+  <!-- navbar -->
 
   <header class="site-header">
     <nav class="nav">
@@ -32,42 +26,30 @@
     </nav>
   </header>
 
-  <!-- animated backgrounds & particles canvas -->
-
   <div id="bg-wave"></div>
   <div id="bg-anim" aria-hidden="true"></div>
   <canvas id="particles" aria-hidden="true"></canvas>
 
-  <!-- page content -->
-
-  <main class="page page-center">
-    <section class="hero">
-      <h1 class="title glow">Lex — Alex González</h1>
-      <p class="subtitle">Música · Tech · Creatividad — Barcelona</p>
+  <main class="page">
+    <section class="content card fade-in">
+      <h2>Sobre mí</h2>
+      <p>¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, el mantenimiento de PCs, la música y la creación de contenidos. Ofrezco servicios informáticos en Barcelona (limpieza, optimización y asesoría).</p>
 
 ```
-  <div class="hero-cta">
-    <a class="cta" href="about.html">Sobre mí</a>
-    <a class="cta ghost" href="music.html">Escuchar playlist</a>
+  <p style="margin-top:1rem;">En esta web encontrarás mis playlists, mis artistas favoritos y mis perfiles en redes. Si quieres contactarme, usa Telegram o email — respondo rápido.</p>
+
+  <div style="margin-top:1.25rem;">
+    <a class="network-btn" href="mailto:contactol3x@gmail.com"><img src="https://img.icons8.com/ios-glyphs/20/ffffff/new-post.png"> Email</a>
+    <a class="network-btn" href="https://t.me/l3xssj" target="_blank"><img src="https://img.icons8.com/ios-glyphs/20/ffffff/telegram.png"> Telegram</a>
   </div>
 </section>
 ```
 
   </main>
 
-  <!-- audio (site-wide) -->
-
-  <!-- IMPORTANT: place vuelta_a_la_luna.mp3 in the same folder as these HTML files -->
-
-<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
-
-  <!-- audio control + playlist toggle + telegram quick -->
-
   <div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
   <button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
   <a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">✈</a>
-
-  <!-- playlist mini-app (shared) -->
 
   <div id="playlist" class="panel closed" aria-hidden="true">
     <div class="panel-head">
@@ -77,11 +59,9 @@
     <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
   </div>
 
-  <!-- custom cursor -->
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
 
   <div id="cursor" class="cursor" aria-hidden="true"></div>
-
-  <!-- shared script -->
 
   <script src="script.js"></script>
 
