@@ -1,109 +1,41 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Reset y fuentes */
+body, html { margin:0; padding:0; font-family:'Inter', sans-serif; background:#0b0b0b; color:#fff;}
+a { text-decoration:none; color:inherit; }
+h1,h2,h3 { font-family:'Roboto', sans-serif; }
 
-/* Fuente moderna */
-body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
-    color: #fff;
-}
+/* Navegación */
+.nav { display:flex; justify-content:space-between; padding:1rem 2rem; align-items:center; background:rgba(0,0,0,0.6);}
+.nav-logo { font-weight:700; font-size:1.5rem; }
+.nav-links a { margin-left:1rem; font-weight:500; }
 
-/* Header */
-header {
-    background: rgba(0, 0, 0, 0.8);
-    padding: 20px 0;
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-}
+/* Hero */
+.page-center { display:flex; justify-content:center; align-items:center; height:80vh; text-align:center; }
+.title.glow { font-size:3rem; color:#fff; text-shadow: 0 0 8px #00f6ff, 0 0 12px #00f6ff; }
 
-.nav-container {
-    max-width: 1100px;
-    margin: auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 20px;
-}
-
-nav a {
-    color: #00d8ff;
-    text-decoration: none;
-    margin-left: 20px;
-    font-weight: 600;
-    transition: 0.3s;
-}
-
-nav a:hover {
-    color: #ff00f7;
-}
-
-/* Main */
-main {
-    max-width: 1100px;
-    margin: 50px auto;
-    padding: 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-}
-
-/* Tarjetas */
-.card {
-    background: rgba(25,25,25,0.9);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.8);
-}
-
-.card h2 {
-    margin-bottom: 15px;
-    font-size: 2em;
-    color: #00d8ff;
-}
+/* Cards y grids */
+.content.card, .card { background:rgba(15,15,15,0.8); padding:1.5rem; border-radius:12px; box-shadow:0 0 20px rgba(0,255,255,0.2); }
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.2rem; }
+.artist-img { width:100%; border-radius:12px; }
 
 /* Botones */
-.btn {
-    display: inline-block;
-    padding: 10px 25px;
-    margin-top: 15px;
-    background: linear-gradient(45deg, #00d8ff, #ff00f7);
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-    border-radius: 10px;
-    transition: 0.3s;
-}
+.network-btn, .cta, .cta.ghost { display:inline-block; padding:.6rem 1rem; margin-top:.5rem; border-radius:8px; background:#00f6ff; color:#000; font-weight:600; transition:.2s; }
+.network-btn:hover, .cta:hover { opacity:.8; }
 
-.btn:hover {
-    background: linear-gradient(45deg, #ff00f7, #00d8ff);
-    transform: scale(1.05);
-}
+/* Floating buttons */
+.floating { position:fixed; bottom:1rem; cursor:pointer; font-size:1.5rem; z-index:999; }
+.floating.right { right:3rem; }
+.floating.right-telegram { right:5rem; }
+.floating.control { left:1rem; background:#00f6ff; color:#000; padding:.5rem .8rem; border-radius:50%; }
 
-/* Footer */
-footer {
-    background: rgba(0,0,0,0.85);
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 50px;
-    font-size: 0.9em;
-    letter-spacing: 1px;
-}
+/* Playlist panel */
+.panel { position:fixed; top:10%; right:-420px; width:400px; background:rgba(0,0,0,0.95); padding:1rem; border-radius:12px; transition:.3s; z-index:998;}
+.panel.open { right:1rem; }
+.panel-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:.5rem;}
+.panel-close { background:none; border:none; color:#fff; font-size:1.2rem; cursor:pointer; }
 
-/* Botones de redes en fila */
-.botones-redes {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-}
+/* Cursor */
+.cursor { position:fixed; width:15px; height:15px; border-radius:50%; background:#00f6ff; pointer-events:none; transform:translate(-50%, -50%); z-index:1000; }
+
+/* Animaciones */
+.fade-in { animation:fadeIn 1s ease forwards; opacity:0;}
+@keyframes fadeIn { to { opacity:1; } }
