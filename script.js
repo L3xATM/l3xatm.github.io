@@ -41,11 +41,3 @@ function animate(){
   requestAnimationFrame(animate);
 }
 animate();
-
-// Música
-const music = document.getElementById('background-music');
-const btn = document.getElementById('toggle-music');
-btn?.addEventListener('click', () => {
-  if(music.paused) music.play();
-  else music.pause();
-});
