@@ -1,1 +1,84 @@
+<!doctype html>
 
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cantantes — Lex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
+</head>
+<body>
+
+  <header class="site-header">
+    <nav class="nav">
+      <a class="nav-logo" href="index.html">Lex</a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">Sobre mí</a>
+        <a href="music.html">Música</a>
+        <a href="artists.html">Cantantes</a>
+        <a href="socials.html">Redes</a>
+      </div>
+    </nav>
+  </header>
+
+  <div id="bg-wave"></div>
+  <div id="bg-anim" aria-hidden="true"></div>
+  <canvas id="particles" aria-hidden="true"></canvas>
+
+  <main class="page">
+    <section class="content fade-in">
+      <h2>Mis Cantantes Favoritos</h2>
+      <p class="muted">Los artistas a los que más doy play ahora mismo — entra a Spotify si quieres escuchar sus top tracks.</p>
+
+```
+  <div class="grid grid-artists" style="margin-top:1.2rem;">
+    <div class="card artist">
+      <img src="https://i.scdn.co/image/ab6761610000e5ebb0f3f8b1a7e3d7c8c6df0f2f" alt="Duki" class="artist-img" onerror="this.style.display='none'">
+      <h3>Duki</h3>
+      <a class="network-btn" href="https://open.spotify.com/artist/1bAftSH8umNcGZ0uyV7LMg" target="_blank">Ver en Spotify</a>
+    </div>
+
+    <div class="card artist">
+      <img src="https://i.scdn.co/image/ab6761610000e5eb5c4d5c8a2b4f8f8a1d9c3d44" alt="Pole." class="artist-img" onerror="this.style.display='none'">
+      <h3>Pole.</h3>
+      <a class="network-btn" href="https://open.spotify.com/artist/7D62OQfwvslnxJn9DkZm2F" target="_blank">Ver en Spotify</a>
+    </div>
+
+    <div class="card artist">
+      <img src="https://i.scdn.co/image/ab6761610000e5ebxxxxxxxxxxxxxxxxxxxxxxxx" alt="Funzo & Baby Loud" class="artist-img" onerror="this.style.display='none'">
+      <h3>Funzo & Baby Loud</h3>
+      <a class="network-btn" href="https://open.spotify.com/artist/1nwjHzOUQZsNYX8xoWiGVC" target="_blank">Ver en Spotify</a>
+    </div>
+
+    <div class="card artist">
+      <img src="https://i.scdn.co/image/ab6761610000e5ebyyyyyyyyyyyyyyyyyyyyyyyyy" alt="YSY A" class="artist-img" onerror="this.style.display='none'">
+      <h3>YSY A</h3>
+      <a class="network-btn" href="https://open.spotify.com/artist/2qWK8K2Jfh67UqtwY8tCW6" target="_blank">Ver en Spotify</a>
+    </div>
+  </div>
+</section>
+```
+
+  </main>
+
+  <div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
+  <button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
+  <a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">✈</a>
+
+  <div id="playlist" class="panel closed" aria-hidden="true">
+    <div class="panel-head">
+      <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png" alt="spotify"> Mi Playlist</div>
+      <button id="closePlaylist" class="panel-close">✕</button>
+    </div>
+    <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+  </div>
+
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
+
+  <div id="cursor" class="cursor" aria-hidden="true"></div>
+  <script src="script.js"></script>
+</body>
+</html>
