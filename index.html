@@ -8,15 +8,18 @@
   <script src="script.js" defer></script>
 </head>
 <body>
-  <!-- Pantalla de carga con canvas -->
+
+  <!-- Loader -->
   <div id="loader">
-    <canvas id="loaderParticles"></canvas>
     <div class="loader-text">Lex</div>
   </div>
 
+  <!-- Partículas de fondo -->
+  <canvas id="particles"></canvas>
+
   <!-- Header -->
   <header>
-    <div class="logo">Lex</div>
+    <div class="brand">Lex</div>
     <nav>
       <ul>
         <li><a href="index.html">Inicio</a></li>
@@ -29,18 +32,27 @@
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="hero fade-in">
+  <!-- Hero / Inicio -->
+  <section class="section hero fade-in">
     <h1>Bienvenido a mi mundo digital</h1>
     <p>Descubre quién soy, lo que hago y acompáñame en mis proyectos.</p>
     <a href="sobre.html" class="btn">Explorar</a>
   </section>
 
-  <!-- Canvas de partículas de fondo -->
-  <canvas id="particles"></canvas>
-
   <footer>
     <p>© 2025 Lex - Todos los derechos reservados</p>
   </footer>
+
+  <script>
+    // Loader
+    window.addEventListener('load', () => {
+      const loader = document.getElementById('loader');
+      loader.classList.add('fade-out');
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 1000);
+    });
+  </script>
+
 </body>
 </html>
