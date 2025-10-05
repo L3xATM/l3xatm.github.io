@@ -5,7 +5,7 @@ const telegramBtn = document.getElementById('telegramQuick');
 
 toggle.addEventListener('click', () => {
   playlist.classList.toggle('open');
-  // sube el botón de Telegram si se abre
+  // sube el botón de Telegram si se abre la playlist
   if(playlist.classList.contains('open')){
     telegramBtn.classList.add('up');
   } else {
