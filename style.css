@@ -5,28 +5,36 @@ body, html{
   background:#000;
   overflow-x:hidden;
   color:#fff;
+  position:relative;
+  z-index:0;
 }
 
 /* --- HEADER --- */
 .site-header{
-  position:fixed; width:100%; top:0; z-index:999;
+  position:fixed; width:100%; top:0; z-index:1000;
   background:rgba(0,0,0,0.5); backdrop-filter:blur(10px);
   display:flex; justify-content:center; padding:1rem 0;
 }
 .nav-logo{ font-family:'Roboto', sans-serif; font-size:1.5rem; color:#0ff; text-shadow:0 0 5px #0ff;}
 .nav-links a{ margin:0 1rem; color:#fff; text-decoration:none; transition:0.3s;}
-.nav-links a:hover{ color:#0ff; text-shadow:0 0 5px #0ff; }
+.nav-links a:hover{ color:#0ff; text-shadow:0 0 10px #0ff; }
 
 /* --- PAGINA --- */
-.page{ padding:120px 20px 50px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; }
-.content{ max-width:1000px; text-align:center; }
+.page{ padding:120px 20px 50px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:1; position:relative; }
+.content{ max-width:1000px; text-align:center; z-index:1; position:relative; }
 .neon-title{ font-size:2.5rem; text-shadow:0 0 5px #0ff,0 0 10px #0ff,0 0 20px #0ff; margin-bottom:1rem; }
 .neon-text{ font-size:1.2rem; text-shadow:0 0 5px #0ff; margin-bottom:2rem; line-height:1.6; }
-.playlist-card{ background:rgba(0,0,0,0.4); backdrop-filter:blur(12px); padding:1rem; border-radius:16px; margin:0 auto; transition:transform 0.4s, box-shadow 0.4s; }
+.playlist-card{ background:rgba(0,0,0,0.4); backdrop-filter:blur(12px); padding:1rem; border-radius:16px; margin:0 auto; transition:transform 0.4s, box-shadow 0.4s; z-index:1; position:relative; }
 .playlist-card:hover{ transform:scale(1.03); box-shadow:0 0 20px #0ff,0 0 40px #0ff,0 0 60px #0ff; }
 
+/* --- ARTISTAS --- */
+.artist-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; margin-top:2rem; }
+.artist-card{ background:rgba(0,0,0,0.3); backdrop-filter:blur(10px); border-radius:16px; padding:1rem; width:200px; text-align:center; transition:transform 0.3s, box-shadow 0.3s; }
+.artist-card:hover{ transform:scale(1.05); box-shadow:0 0 15px #0ff,0 0 30px #0ff; }
+.artist-card img{ width:100%; border-radius:12px; margin-bottom:0.5rem; }
+
 /* --- REDES --- */
-.socials-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; }
+.socials-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; z-index:1; position:relative; }
 .socials-grid img{ width:60px; height:60px; transition:0.3s; filter:drop-shadow(0 0 5px #0ff); }
 .socials-grid img:hover{ transform:scale(1.2); filter:drop-shadow(0 0 15px #0ff); }
 
@@ -35,16 +43,6 @@ body, html{
 @keyframes fadeInUp{ to{opacity:1; transform:translateY(0);} }
 
 /* --- FONDO GRADIENTE NEON --- */
-#bg-wave, #bg-anim{ position:fixed; width:100%; height:100%; top:0; left:0; z-index:-2; }
-#bg-wave{ background: linear-gradient(-45deg,#0ff,#f0f,#ff0,#0ff); background-size:400% 400%; animation:bgGradient 15s ease infinite; }
-@keyframes bgGradient{ 0%{background-position:0% 50%;}50%{background-position:100% 50%;}100%{background-position:0% 50%;} }
-
-/* --- CURSOR PERSONALIZADO --- */
-.cursor{ width:20px; height:20px; border-radius:50%; position:fixed; top:0; left:0; pointer-events:none; border:2px solid #0ff; transform:translate(-50%, -50%); transition:0.1s; z-index:999; }
-
-/* --- RESPONSIVE --- */
-@media(max-width:768px){
-  .neon-title{ font-size:2rem; }
-  .neon-text{ font-size:1rem; }
-  .socials-grid img{ width:50px; height:50px; }
-}
+#bg-wave{ position:fixed; width:100%; height:100%; top:0; left:0; z-index:-2; pointer-events:none;
+  background: linear-gradient(-45deg,#0ff,#f0f,#ff0,#0ff); background-size:400% 400%; animation:bgGradient 15s ease infinite; }
+@keyframes bgGradient{ 0%
