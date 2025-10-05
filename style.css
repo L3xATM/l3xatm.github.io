@@ -1,234 +1,33 @@
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Inter', sans-serif;
-}
-
-body {
-  background: #0c0c0c;
-  color: #fff;
-  overflow-x: hidden;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* Header / Navegación */
-.site-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(12,12,12,0.85);
-  backdrop-filter: blur(6px);
-  z-index: 100;
-}
-
-.nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.75rem 2rem;
-}
-
-.nav-logo {
-  font-weight: 700;
-  font-size: 1.6rem;
-  color: #fff;
-}
-
-.nav-links a {
-  margin-left: 1.5rem;
-  font-weight: 500;
-  transition: 0.2s;
-}
-
-.nav-links a:hover {
-  color: #aaa;
-}
-
-/* Hero */
-.page-center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.hero {
-  text-align: center;
-}
-
-.title {
-  font-size: 3rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  font-size: 1.2rem;
-  color: #bbb;
-  margin-bottom: 2rem;
-}
-
-.hero-cta .cta {
-  display: inline-block;
-  margin: 0.5rem 1rem;
-  padding: 0.75rem 1.5rem;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  font-weight: 600;
-  transition: 0.2s;
-}
-
-.hero-cta .cta:hover {
-  background: #fff;
-  color: #0c0c0c;
-}
-
-.hero-cta .ghost {
-  background: transparent;
-}
-
-/* Secciones */
-.page .content {
-  padding: 6rem 2rem 2rem 2rem;
-}
-
-.card {
-  background: #1c1c1c;
-  border-radius: 12px;
-  padding: 1rem;
-  margin-top: 1rem;
-}
-
-.muted {
-  color: #aaa;
-}
-
-/* Redes y artistas */
-.networks-grid, .artists-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit,minmax(140px,1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.network-btn, .artist-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: #1c1c1c;
-  padding: 0.75rem;
-  border-radius: 12px;
-  text-align: center;
-  transition: 0.2s;
-}
-
-.network-btn:hover, .artist-card:hover {
-  background: #333;
-}
-
-.network-btn img, .artist-img {
-  width: 48px;
-  height: 48px;
-  object-fit: cover;
-  margin-bottom: 0.5rem;
-}
-
-/* Floating controls */
-.floating {
-  position: fixed;
-  z-index: 200;
-  cursor: pointer;
-  border: none;
-  background: #1c1c1c;
-  color: #fff;
-  padding: 0.5rem 0.75rem;
-  border-radius: 50%;
-  font-size: 1.2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.2s;
-}
-
-.floating:hover {
-  background: #333;
-}
-
-.floating.right {
-  bottom: 3.5rem;
-  right: 1rem;
-}
-
-.floating.right-telegram {
-  bottom: 1rem;
-  right: 1rem;
-  width: 50px;
-  height: 50px;
-  padding: 0;
-}
-
-.floating.right-telegram img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 50%;
-}
-
-/* Playlist panel */
+/* Playlist panel animado */
 .panel {
   position: fixed;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%) translateY(100%);
-  background: #1c1c1c;
-  width: 90%;
-  max-width: 450px;
-  border-radius: 12px 12px 0 0;
+  right: 18px;
+  bottom: 18px;
+  width: 360px;
+  max-width: 92%;
+  border-radius: 14px;
   overflow: hidden;
-  transition: 0.3s;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 25px 60px rgba(0,0,0,0.7);
   z-index: 150;
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
 .panel.open {
-  transform: translateX(-50%) translateY(0);
+  transform: translateY(0);
+  opacity: 1;
 }
 
-.panel-head {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #111;
-  padding: 0.5rem 1rem;
+/* Ajuste botón Telegram al abrir playlist */
+.floating.right-telegram {
+  bottom: 5rem; /* posición normal */
+  right: 1rem;
+  z-index: 151;
+  transition: bottom 0.5s ease;
 }
 
-.panel-title {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.panel-close {
-  background: transparent;
-  border: none;
-  font-size: 1.2rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Cursor personalizado */
-.cursor {
-  width: 12px;
-  height: 12px;
-  background: #fff;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 500;
+.floating.right-telegram.up {
+  bottom: 20rem; /* sube cuando la playlist se abre */
 }
