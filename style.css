@@ -1,114 +1,4 @@
-/* Fuente y reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Poppins', sans-serif;
-  color: white;
-  background: linear-gradient(-45deg, #0f0f0f, #1a0033, #000814, #240046);
-  background-size: 400% 400%;
-  animation: gradientBG 15s ease infinite;
-  overflow-x: hidden;
-}
-
-/* Animación fondo */
-@keyframes gradientBG {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-/* Marca personal */
-.brand {
-  position: fixed;
-  top: 20px;
-  left: 30px;
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #fff;
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff;
-  z-index: 1000;
-}
-
-/* Navegación */
-nav {
-  position: fixed;
-  top: 20px;
-  right: 40px;
-  z-index: 1000;
-}
-nav ul {
-  display: flex;
-  gap: 20px;
-  list-style: none;
-}
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: 0.3s;
-}
-nav ul li a:hover {
-  color: #ff00ff;
-  text-shadow: 0 0 8px #ff00ff;
-}
-
-/* Secciones */
-.section {
-  min-height: 100vh;
-  padding: 120px 10%;
-  text-align: center;
-}
-.section h1, .section h2 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  text-shadow: 0 0 10px #00f7ff, 0 0 20px #00f7ff;
-}
-.section p {
-  margin-bottom: 30px;
-  font-size: 1.1rem;
-  line-height: 1.6;
-}
-
-/* Playlist */
-.playlist {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Redes */
-.redes-links {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-}
-.redes-links a {
-  padding: 10px 20px;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.1);
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  transition: 0.3s;
-}
-.redes-links a:hover {
-  background: #ff00ff;
-  box-shadow: 0 0 15px #ff00ff;
-}
-
-/* Partículas canvas */
-#particles {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
+/* ... tu CSS actual ... */
 
 /* Pantalla de carga */
 #loader {
@@ -122,9 +12,19 @@ nav ul li a:hover {
   justify-content: center;
   align-items: center;
   z-index: 2000;
+  overflow: hidden;
+}
+
+#loaderParticles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .loader-text {
+  position: relative;
   font-size: 3rem;
   font-weight: bold;
   color: #ff00ff;
