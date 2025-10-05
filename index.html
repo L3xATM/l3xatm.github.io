@@ -1,26 +1,26 @@
 <!doctype html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Lex — Alex González</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lex — Alex González</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
 </head>
 <body>
 
 <header class="site-header">
-<nav class="nav">
-  <a class="nav-logo" href="index.html">Lex</a>
-  <div class="nav-links">
-    <a href="index.html">Home</a>
-    <a href="about.html">Sobre mí</a>
-    <a href="music.html">Música</a>
-    <a href="artists.html">Cantantes</a>
-    <a href="socials.html">Redes</a>
-  </div>
-</nav>
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Lex</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">Sobre mí</a>
+      <a href="music.html">Música</a>
+      <a href="artists.html">Cantantes</a>
+      <a href="socials.html">Redes</a>
+    </div>
+  </nav>
 </header>
 
 <div id="bg-wave"></div>
@@ -28,24 +28,27 @@
 <canvas id="particles" aria-hidden="true"></canvas>
 
 <main class="page page-center">
-<section class="hero">
-  <h1 class="title glow">Lex — Alex González</h1>
-  <p class="subtitle">Música · Tech · Creatividad — Barcelona</p>
-  <div class="hero-cta">
-    <a class="cta" href="about.html">Sobre mí</a>
-    <a class="cta ghost" href="music.html">Escuchar playlist</a>
-  </div>
-</section>
+  <section class="hero">
+    <h1 class="title glow">Lex — Alex González</h1>
+    <p class="subtitle">Música · Tech · Creatividad — Barcelona</p>
+    <div class="hero-cta">
+      <a class="cta" href="about.html">Sobre mí</a>
+      <a class="cta ghost" href="music.html">Escuchar playlist</a>
+    </div>
+  </section>
 </main>
 
+<!-- Audio -->
 <audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
 
+<!-- Botones flotantes -->
 <div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
 <button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
-<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Telegram">
+<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">
   <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" alt="Telegram">
 </a>
 
+<!-- Playlist -->
 <div id="playlist" class="panel closed" aria-hidden="true">
   <div class="panel-head">
     <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png" alt="spotify"> Mi Playlist</div>
