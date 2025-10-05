@@ -3,76 +3,49 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lex - Música y Artistas</title>
+  <title>Mi Web</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- FONDO ANIMADO -->
-  <div id="bg-wave"></div>
 
-  <!-- HEADER -->
-  <header class="site-header">
-    <div class="nav-logo">Lex</div>
-    <nav class="nav-links">
-      <a href="#musica">Música</a>
-      <a href="#cantantes">Artistas</a>
-      <a href="#redes">Redes</a>
+  <!-- FONDO ANIMADO -->
+  <canvas id="background"></canvas>
+
+  <!-- MENU -->
+  <header>
+    <nav>
+      <ul>
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#cantantes">Cantantes</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+      </ul>
     </nav>
   </header>
 
   <!-- SECCION MUSICA -->
-  <section id="musica" class="page fade-in">
-    <div class="content">
-      <h1 class="neon-title">Mi Playlist Destacada</h1>
-      <p class="neon-text">¡No te pierdas esta selección de mis temas favoritos! Música perfecta para animarte y descubrir nuevos sonidos. Escúchala y sigue el ritmo con Lex.</p>
-      <div class="playlist-card">
-        <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-      </div>
-    </div>
+  <section id="musica" class="fade-in">
+    <h2>Mi Playlist</h2>
+    <p>Descubre los ritmos que más me inspiran. ¡Dale play y disfruta!</p>
+    <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?si=3384a96eddff4902" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </section>
 
   <!-- SECCION CANTANTES -->
-  <section id="cantantes" class="page fade-in">
-    <div class="content">
-      <h1 class="neon-title">Artistas Favoritos</h1>
-      <div class="artist-grid">
-        <div class="artist-card fade-in">
-          <img src="https://images.sk-static.com/images/media/profile_images/artists/9235114/huge_avatar" alt="Duki">
-          <p>Duki</p>
-        </div>
-        <div class="artist-card fade-in">
-          <img src="https://cdn-p.smehost.net/sites/1f30c30982e94fb991ebc072daf6b6f4/wp-content/uploads/2025/06/pole_bio.jpg" alt="Pole">
-          <p>Pole</p>
-        </div>
-        <div class="artist-card fade-in">
-          <img src="https://cdn-p.smehost.net/sites/5b3bac59eb36401694af3a241173447f/wp-content/uploads/2022/02/MicrosoftTeams-image-11.jpg" alt="Funzo & Baby Loud">
-          <p>Funzo & Baby Loud</p>
-        </div>
-        <div class="artist-card fade-in">
-          <img src="https://pbs.twimg.com/media/FUw6RZOWUAAPDki.jpg" alt="Ysy A">
-          <p>Ysy A</p>
-        </div>
-      </div>
+  <section id="cantantes" class="fade-in">
+    <h2>Cantantes Favoritos</h2>
+    <div class="artist-grid">
+      <div class="artist"><img src="https://images.sk-static.com/images/media/profile_images/artists/9235114/huge_avatar" alt="Duki"><p>Duki</p></div>
+      <div class="artist"><img src="https://cdn-p.smehost.net/sites/1f30c30982e94fb991ebc072daf6b6f4/wp-content/uploads/2025/06/pole_bio.jpg" alt="Pole"><p>Pole</p></div>
+      <div class="artist"><img src="https://cdn-p.smehost.net/sites/5b3bac59eb36401694af3a241173447f/wp-content/uploads/2022/02/MicrosoftTeams-image-11.jpg" alt="Funzo y Babyloud"><p>Funzo y Babyloud</p></div>
+      <div class="artist"><img src="https://pbs.twimg.com/media/FUw6RZOWUAAPDki.jpg" alt="Ysy A"><p>Ysy A</p></div>
     </div>
   </section>
 
-  <!-- SECCION REDES -->
-  <section id="redes" class="page fade-in">
-    <div class="content">
-      <h1 class="neon-title">Sígueme en Redes</h1>
-      <div class="socials-grid">
-        <a href="https://www.instagram.com/l3xssj/" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174855.png" alt="Instagram"></a>
-        <a href="https://www.facebook.com/lex.45152" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/174/174848.png" alt="Facebook"></a>
-        <a href="https://x.com/l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png" alt="X"></a>
-        <a href="https://www.youtube.com/@l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"></a>
-      </div>
-    </div>
+  <!-- SECCION SOBRE MI -->
+  <section id="sobre-mi" class="fade-in">
+    <h2>Sobre mí</h2>
+    <p>Aquí puedes poner tu texto de presentación, tus redes y más info.</p>
   </section>
 
-  <!-- CURSOR -->
-  <div class="cursor"></div>
-
-  <!-- SCRIPT -->
   <script src="script.js"></script>
 </body>
 </html>
