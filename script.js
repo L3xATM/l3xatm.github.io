@@ -1,78 +1,58 @@
-const canvas = document.getElementById('background');
+const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-let w = canvas.width = window.innerWidth;
-let h = canvas.height = window.innerHeight;
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
 
-const particles = [];
-const numParticles = 80;
-let mouse = {x:null,y:null};
+let particlesArray = [];
+const colors = ['#ff00ff', '#00f7ff', '#ffea00'];
 
 class Particle {
-  constructor(){
-    this.x = Math.random()*w;
-    this.y = Math.random()*h;
-    this.size = Math.random()*3 + 1;
-    this.speedX = Math.random()*1.5 - 0.75;
-    this.speedY = Math.random()*1.5 - 0.75;
-    this.color = `rgba(0,255,255,${Math.random()*0.5 + 0.2})`;
+  constructor(x, y, dx, dy, size, color) {
+    this.x = x; this.y = y;
+    this.dx = dx; this.dy = dy;
+    this.size = size;
+    this.color = color;
   }
-  update(){
-    this.x += this.speedX;
-    this.y += this.speedY;
-    if(this.x<0||this.x>w) this.speedX*=-1;
-    if(this.y<0||this.y>h) this.speedY*=-1;
-  }
-  draw(){
+  draw() {
     ctx.beginPath();
-    ctx.arc(this.x,this.y,this.size,0,Math.PI*2);
-    ctx.fillStyle=this.color;
+    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+    ctx.fillStyle = this.color;
+    ctx.shadowColor = this.color;
+    ctx.shadowBlur = 20;
     ctx.fill();
   }
-}
-
-for(let i=0;i<numParticles;i++) particles.push(new Particle());
-
-function connectParticles(){
-  for(let a=0;a<particles.length;a++){
-    for(let b=a;b<particles.length;b++){
-      let dx = particles[a].x - particles[b].x;
-      let dy = particles[a].y - particles[b].y;
-      let distance = Math.sqrt(dx*dx + dy*dy);
-      if(distance<100){
-        ctx.beginPath();
-        ctx.strokeStyle=`rgba(0,255,255,${1-distance/100})`;
-        ctx.lineWidth=1;
-        ctx.moveTo(particles[a].x,particles[a].y);
-        ctx.lineTo(particles[b].x,particles[b].y);
-        ctx.stroke();
-      }
-    }
+  update() {
+    if(this.x + this.size > canvas.width || this.x - this.size < 0) this.dx = -this.dx;
+    if(this.y + this.size > canvas.height || this.y - this.size < 0) this.dy = -this.dy;
+    this.x += this.dx;
+    this.y += this.dy;
+    this.draw();
   }
 }
 
-function animate(){
-  ctx.clearRect(0,0,w,h);
-
-  // Fondo neon gradiente
-  let gradient = ctx.createLinearGradient(0,0,w,h);
-  gradient.addColorStop(0, `hsl(${(Date.now()/50)%360}, 100%, 10%)`);
-  gradient.addColorStop(1, `hsl(${(Date.now()/50+60)%360}, 100%, 20%)`);
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0,0,w,h);
-
-  particles.forEach(p=>{p.update();p.draw();});
-  connectParticles();
-  requestAnimationFrame(animate);
+function init() {
+  particlesArray = [];
+  for(let i = 0; i < 50; i++) {
+    let size = Math.random() * 3 + 2;
+    let x = Math.random() * (canvas.width - size * 2) + size;
+    let y = Math.random() * (canvas.height - size * 2) + size;
+    let dx = (Math.random() - 0.5) * 1.5;
+    let dy = (Math.random() - 0.5) * 1.5;
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    particlesArray.push(new Particle(x, y, dx, dy, size, color));
+  }
 }
+function animate() {
+  requestAnimationFrame(animate);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  particlesArray.forEach(p => p.update());
+}
+init();
 animate();
 
-window.addEventListener('resize', ()=>{
-  w=canvas.width=window.innerWidth;
-  h=canvas.height=window.innerHeight;
-});
-
-window.addEventListener('mousemove', (e)=>{
-  mouse.x = e.x;
-  mouse.y = e.y;
+window.addEventListener('resize', () => {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  init();
 });
