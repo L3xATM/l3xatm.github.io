@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Redes — Lex</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Lex</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">Sobre mí</a>
+      <a href="music.html">Música</a>
+      <a href="artists.html">Cantantes</a>
+      <a href="socials.html">Redes</a>
+    </div>
+  </nav>
+</header>
+
+<div id="bg-wave"></div>
+<div id="bg-anim" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<main class="page">
+  <section class="content card fade-in">
+    <h2>Mis Redes</h2>
+    <div class="grid" style="gap:1rem; margin-top:1rem;">
+      <a class="network-btn" href="https://www.facebook.com/lex.45152" target="_blank">Facebook</a>
+      <a class="network-btn" href="https://instagram.com/l3xssj" target="_blank">Instagram</a>
+      <a class="network-btn" href="https://tiktok.com/@aaleeexxgonzalez" target="_blank">TikTok</a>
+      <a class="network-btn" href="https://x.com/l3xssj" target="_blank">X</a>
+      <a class="network-btn" href="https://www.youtube.com/@l3xssj" target="_blank">YouTube</a>
+      <a class="network-btn" href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank">Wishlist</a>
+      <a class="network-btn" href="https://bere.al/aaleeexxgonzalez" target="_blank">Bere.al</a>
+      <a class="network-btn" href="mailto:contactol3x@gmail.com">Email</a>
+    </div>
+  </section>
+</main>
+
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
+<div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
+<button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
+<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">✈</a>
+
+<div id="playlist" class="panel closed" aria-hidden="true">
+  <div class="panel-head">
+    <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png" alt="spotify"> Mi Playlist</div>
+    <button id="closePlaylist" class="panel-close">✕</button>
+  </div>
+  <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+</div>
+
+<div id="cursor" class="cursor" aria-hidden="true"></div>
+<script src="script.js"></script>
+</body>
+</html>
