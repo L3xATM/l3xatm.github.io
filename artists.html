@@ -1,8 +1,8 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Cantantes — Lex</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -28,31 +28,36 @@
 <canvas id="particles" aria-hidden="true"></canvas>
 
 <main class="page">
-  <section class="content card fade-in">
-    <h2 class="title glow">Artistas Favoritos</h2>
-    <div class="artist-container">
-      <div class="artist-card glow-hover">
-        <img src="https://i.scdn.co/image/ab6761610000e5ebaa9df27b4d1bdb25e7c5c3f7" alt="Bad Bunny">
-        <h3>Bad Bunny</h3>
+  <section class="content fade-in">
+    <h2>Mis Cantantes Favoritos</h2>
+    <p class="muted">Los artistas a los que más doy play ahora mismo — entra a Spotify si quieres escuchar sus top tracks.</p>
+
+    <div class="grid-artists">
+      <div class="artist">
+        <img src="https://i.scdn.co/image/ab6761610000e5ebb0f3f8b1a7e3d7c8c6df0f2f" alt="Duki" class="artist-img">
+        <h3>Duki</h3>
+        <a class="network-btn" href="https://open.spotify.com/artist/1bAftSH8umNcGZ0uyV7LMg" target="_blank">Ver en Spotify</a>
       </div>
-      <div class="artist-card glow-hover">
-        <img src="https://i.scdn.co/image/ab6761610000e5eb1f95b1b3fa6b4f6f8f3a9d90" alt="Rauw Alejandro">
-        <h3>Rauw Alejandro</h3>
+      <div class="artist">
+        <img src="https://i.scdn.co/image/ab6761610000e5eb5c4d5c8a2b4f8f8a1d9c3d44" alt="Pole." class="artist-img">
+        <h3>Pole.</h3>
+        <a class="network-btn" href="https://open.spotify.com/artist/7D62OQfwvslnxJn9DkZm2F" target="_blank">Ver en Spotify</a>
       </div>
-      <div class="artist-card glow-hover">
-        <img src="https://i.scdn.co/image/ab6761610000e5eb5cf91291e9fcfbe08c1a64f3" alt="Ysy A">
-        <h3>Ysy A</h3>
+      <div class="artist">
+        <img src="https://i.scdn.co/image/ab6761610000e5ebxxxxxxxxxxxxxxxxxxxxxxxx" alt="Funzo & Baby Loud" class="artist-img">
+        <h3>Funzo & Baby Loud</h3>
+        <a class="network-btn" href="https://open.spotify.com/artist/1nwjHzOUQZsNYX8xoWiGVC" target="_blank">Ver en Spotify</a>
       </div>
-      <div class="artist-card glow-hover">
-        <img src="https://i.scdn.co/image/ab6761610000e5ebfaaf9d13c8fca5f7de7b2d09" alt="Jhay Cortez">
-        <h3>Jhay Cortez</h3>
+      <div class="artist">
+        <img src="https://i.scdn.co/image/ab6761610000e5ebyyyyyyyyyyyyyyyyyyyyyyyyy" alt="YSY A" class="artist-img">
+        <h3>YSY A</h3>
+        <a class="network-btn" href="https://open.spotify.com/artist/2qWK8K2Jfh67UqtwY8tCW6" target="_blank">Ver en Spotify</a>
       </div>
     </div>
   </section>
 </main>
 
 <audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
-
 <div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
 <button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
 <a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">✈</a>
