@@ -7,66 +7,37 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="background"></div>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Lex</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="sobre.html" class="active">Sobre mí</a></li>
-        <li><a href="servicios.html">Servicios</a></li>
-        <li><a href="musica.html">Música</a></li>
-        <li><a href="redes.html">Redes</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
-  </header>
+  <canvas id="particles"></canvas>
 
-  <main>
-    <section id="about" class="fade-in">
-      <h2 class="glow">👤 Sobre mí</h2>
-      <div class="about-text">
-        <p>
-          ¡Hola! Soy <strong>Lex</strong>, un apasionado de la informática, los videojuegos y todo lo que tenga que ver con la tecnología. 
-          Tengo 21 años y vengo de un pequeño y encantador pueblito en <strong>Barcelona</strong>, donde desde muy joven empecé a descubrir 
-          el mundo digital y la fascinación por cómo funcionan las cosas detrás de la pantalla.
-        </p>
-        <p>
-          Desde siempre me ha encantado aprender, explorar y experimentar. Recuerdo pasar horas desmontando y montando PCs, 
-          probando distintos programas, resolviendo problemas y descubriendo los secretos que hacen que todo funcione. 
-          Esa curiosidad no solo me enseñó a entender la tecnología, sino también a desarrollar paciencia, creatividad 
-          y la habilidad de solucionar problemas paso a paso.
-        </p>
-        <p>
-          Con el tiempo, mi pasión se convirtió en algo más grande: <strong>compartir conocimientos y experiencias con los demás</strong>. 
-          Ya no se trata solo de jugar o de aprender por mí mismo, sino de construir un espacio donde otros puedan disfrutar, 
-          aprender y divertirse. Por eso creé mi canal de <strong>Twitch</strong>, un lugar donde los videojuegos se mezclan 
-          con la diversión, la comunidad y las risas. Aquí no solo transmito partidas; creo un ambiente donde todos puedan 
-          sentirse parte de algo, desconectar del estrés del día a día y vivir aventuras digitales juntos.
-        </p>
-        <p>
-          Pero no todo es streaming. También me dedico a ofrecer <strong>servicios de informática y tecnología</strong>: montaje 
-          y mantenimiento de ordenadores, limpieza de sistemas, optimización de PCs, y asesoría para quienes quieran mejorar 
-          sus setups o iniciarse en el mundo de la informática. Me motiva ver cómo mis conocimientos ayudan a otros a disfrutar 
-          mejor de sus equipos y a resolver problemas que, al principio, parecían imposibles.
-        </p>
-        <p>
-          Me considero una persona curiosa, constante y apasionada por lo que hace, siempre en busca de mejorar, aprender 
-          cosas nuevas y superar retos. Más allá de la tecnología y los videojuegos, me encanta conectar con la gente, 
-          compartir experiencias y crear una comunidad donde cada persona se sienta bienvenida y escuchada.
-        </p>
-        <p>
-          Si has llegado hasta aquí, gracias por interesarte un poco más en mí y en lo que hago. Este es solo el comienzo, 
-          y me encantaría que formes parte de esta aventura: <strong>jugando, aprendiendo o simplemente pasando un buen rato</strong>. 
-          Cada transmisión, cada proyecto y cada interacción es una oportunidad para crear algo especial juntos.
-        </p>
-        <p>
-          🌌 <em>¡Bienvenido a mi mundo digital! Aquí encontrarás diversión, tecnología, risas y muchas ganas de compartir momentos inolvidables. 
-          No olvides seguirme y activar las notificaciones para no perderte nada de lo que estamos construyendo juntos.</em>
-        </p>
-      </div>
-    </section>
-  </main>
+  <div class="container fade-in">
+    <h1 class="glow fade-up">Sobre mí</h1>
+
+    <p class="text fade-up" style="animation-delay:0.2s">
+      ¡Hola! Soy Lex, un apasionado de la informática, los videojuegos y todo lo relacionado con la tecnología. Tengo 21 años y provengo de un pequeño y encantador pueblito en Barcelona, donde desde muy joven empecé a descubrir el fascinante mundo digital y a maravillarme con todo lo que ocurre detrás de la pantalla. La curiosidad por entender cómo funcionan las cosas me ha acompañado desde siempre, y esa pasión ha moldeado gran parte de quien soy hoy.
+    </p>
+
+    <p class="text fade-up" style="animation-delay:0.4s">
+      Desde niño, pasaba horas desmontando y montando PCs, probando distintos programas, resolviendo problemas y explorando cada detalle del software y hardware. Esa curiosidad no solo me enseñó a dominar la tecnología, sino que también me ayudó a desarrollar paciencia, creatividad y una mentalidad analítica para enfrentar desafíos paso a paso.
+    </p>
+
+    <p class="text fade-up" style="animation-delay:0.6s">
+      Con el tiempo, mi pasión se convirtió en algo más grande: compartir conocimientos y experiencias con los demás. Ya no se trata solo de aprender o jugar por mí mismo, sino de crear un espacio donde otros puedan disfrutar, aprender y divertirse. Por eso fundé mi canal de Twitch, un lugar donde los videojuegos se mezclan con diversión, comunidad y risas. Aquí no solo transmito partidas; busco crear un ambiente en el que todos se sientan parte de algo especial, desconecten del estrés diario y vivan aventuras digitales juntos.
+    </p>
+
+    <p class="text fade-up" style="animation-delay:0.8s">
+      Más allá del streaming, me dedico a ofrecer servicios de informática y tecnología: montaje y mantenimiento de ordenadores, limpieza de sistemas, optimización de PCs y asesoría para quienes quieren mejorar sus setups o iniciarse en el mundo de la informática. Me motiva ver cómo mis conocimientos ayudan a otros a disfrutar mejor de sus equipos y a resolver problemas que, al principio, parecían imposibles. Cada proyecto es una oportunidad para aprender y compartir.
+    </p>
+
+    <p class="text fade-up" style="animation-delay:1s">
+      Me considero una persona curiosa, constante y apasionada, siempre buscando mejorar, aprender cosas nuevas y superar retos. Pero más allá de la tecnología y los videojuegos, me encanta conectar con la gente, compartir experiencias y construir una comunidad donde cada persona se sienta bienvenida y escuchada.
+    </p>
+
+    <p class="text glow fade-up" style="animation-delay:1.2s">
+      🌌 ¡Bienvenido a mi mundo digital! Aquí encontrarás diversión, tecnología, risas y muchas ganas de compartir momentos inolvidables. No olvides seguirme y activar las notificaciones para no perderte nada de lo que estamos construyendo juntos.
+    </p>
+
+    <a href="index.html" class="glow-btn fade-up" style="animation-delay:1.4s">Volver al inicio</a>
+  </div>
 
   <script src="script.js"></script>
 </body>
