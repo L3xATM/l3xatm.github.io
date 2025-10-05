@@ -1,38 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lex - Inicio</title>
-    <link rel="stylesheet" href="estilos.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lex — Alex González</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
 </head>
 <body>
-    <header>
-        <div class="nav-container">
-            <h1>Lex</h1>
-            <nav>
-                <a href="index.html">Inicio</a>
-                <a href="redes.html">Redes</a>
-                <a href="contacto.html">Contacto</a>
-            </nav>
-        </div>
-    </header>
 
-    <main>
-        <section class="card">
-            <h2>Sobre mí</h2>
-            <p>Hola, soy Lex. Ofrezco servicios informáticos, creación de contenido y más. Todo adaptado a tus necesidades.</p>
-            <a href="redes.html" class="btn">Ver redes</a>
-        </section>
+<header class="site-header">
+  <nav class="nav">
+    <a class="nav-logo" href="index.html">Lex</a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">Sobre mí</a>
+      <a href="music.html">Música</a>
+      <a href="artists.html">Cantantes</a>
+      <a href="socials.html">Redes</a>
+    </div>
+  </nav>
+</header>
 
-        <section class="card">
-            <h2>Servicios</h2>
-            <p>Desde limpieza y mantenimiento de PCs hasta gestión de redes y soporte técnico. Todo con rapidez y eficiencia.</p>
-        </section>
-    </main>
+<div id="bg-wave"></div>
+<div id="bg-anim" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
 
-    <footer>
-        <p>© 2025 Lex</p>
-    </footer>
+<main class="page page-center">
+  <section class="hero">
+    <h1 class="title glow">Lex — Alex González</h1>
+    <p class="subtitle">Música · Tech · Creatividad — Barcelona</p>
+    <div class="hero-cta">
+      <a class="cta" href="about.html">Sobre mí</a>
+      <a class="cta ghost" href="music.html">Escuchar playlist</a>
+    </div>
+  </section>
+</main>
+
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
+<div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
+<button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
+<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank" title="Abrirme por Telegram">✈</a>
+
+<div id="playlist" class="panel closed" aria-hidden="true">
+  <div class="panel-head">
+    <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png" alt="spotify"> Mi Playlist</div>
+    <button id="closePlaylist" class="panel-close">✕</button>
+  </div>
+  <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
+</div>
+
+<div id="cursor" class="cursor" aria-hidden="true"></div>
+<script src="script.js"></script>
 </body>
 </html>
