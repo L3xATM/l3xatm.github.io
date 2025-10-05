@@ -1,39 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lex - Home</title>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Web</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="site-header">
-  <nav class="nav">
-    <a class="nav-logo" href="index.html">Lex</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">Sobre mí</a>
-      <a href="music.html">Música</a>
-      <a href="socials.html">Redes</a>
-    </div>
-  </nav>
-</header>
+  <!-- FONDO ANIMADO -->
+  <canvas id="background"></canvas>
 
-<div id="bg-wave"></div>
-<div id="bg-anim" aria-hidden="true"></div>
-<canvas id="particles" aria-hidden="true"></canvas>
+  <!-- MENU -->
+  <header class="fade-header">
+    <nav>
+      <ul>
+        <li><a href="#musica">Música</a></li>
+        <li><a href="#cantantes">Cantantes</a></li>
+        <li><a href="#sobre-mi">Sobre mí</a></li>
+      </ul>
+    </nav>
+  </header>
 
-<main class="page fade-in">
-  <section class="content">
-    <h1 class="neon-title">¡Bienvenido a mi mundo!</h1>
-    <p class="neon-text">Descubre música, contenido y más. Todo con estilo neon y animaciones que dan vida a cada sección.</p>
+  <!-- SECCION MUSICA -->
+  <section id="musica" class="fade-in">
+    <h2>Mi Playlist</h2>
+    <p>Descubre los ritmos que más me inspiran. ¡Dale play y disfruta!</p>
+    <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?si=3384a96eddff4902" width="320" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
   </section>
-</main>
 
-<div id="cursor" class="cursor" aria-hidden="true"></div>
-<script src="script.js"></script>
+  <!-- SECCION CANTANTES -->
+  <section id="cantantes" class="fade-in">
+    <h2>Cantantes Favoritos</h2>
+    <div class="artist-grid">
+      <div class="artist"><img src="https://images.sk-static.com/images/media/profile_images/artists/9235114/huge_avatar" alt="Duki"><p>Duki</p></div>
+      <div class="artist"><img src="https://cdn-p.smehost.net/sites/1f30c30982e94fb991ebc072daf6b6f4/wp-content/uploads/2025/06/pole_bio.jpg" alt="Pole"><p>Pole</p></div>
+      <div class="artist"><img src="https://cdn-p.smehost.net/sites/5b3bac59eb36401694af3a241173447f/wp-content/uploads/2022/02/MicrosoftTeams-image-11.jpg" alt="Funzo y Babyloud"><p>Funzo y Babyloud</p></div>
+      <div class="artist"><img src="https://pbs.twimg.com/media/FUw6RZOWUAAPDki.jpg" alt="Ysy A"><p>Ysy A</p></div>
+    </div>
+  </section>
+
+  <!-- SECCION SOBRE MI -->
+  <section id="sobre-mi" class="fade-in">
+    <h2>Sobre mí</h2>
+    <p>Soy Lex, un apasionado de la música y la informática. En esta web comparto mis playlists favoritas, mis artistas de referencia y un poco sobre mí.</p>
+  </section>
+
+  <script src="script.js"></script>
 </body>
 </html>
