@@ -1,98 +1,109 @@
-
+/* Reset básico */
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
+/* Fuente moderna */
 body {
-  background: linear-gradient(135deg, #a4508b, #5f0a87);
-  color: white;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 80px;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    color: #fff;
 }
 
-nav {
-  position: fixed;
-  top: 20px;
-  background: rgba(255, 255, 255, 0.1);
-  padding: 10px 30px;
-  border-radius: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 80%;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-  backdrop-filter: blur(10px);
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
 }
 
-nav .logo {
-  font-size: 20px;
-  font-weight: bold;
-  color: white;
+.nav-container {
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 20px;
+nav a {
+    color: #00d8ff;
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    transition: 0.3s;
 }
 
-nav ul li a {
-  text-decoration: none;
-  color: white;
-  font-weight: bold;
-  transition: color 0.3s ease;
+nav a:hover {
+    color: #ff00f7;
 }
 
-nav ul li a:hover {
-  color: #ffd700;
+/* Main */
+main {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
-section.content {
-  margin-top: 100px;
-  text-align: center;
-  padding: 20px;
+/* Tarjetas */
+.card {
+    background: rgba(25,25,25,0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-section.content h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.8);
 }
 
-section.content p, section.content ul {
-  font-size: 1.2rem;
-  line-height: 1.6;
+.card h2 {
+    margin-bottom: 15px;
+    font-size: 2em;
+    color: #00d8ff;
 }
 
-section.content ul {
-  list-style: none;
-  margin-top: 20px;
+/* Botones */
+.btn {
+    display: inline-block;
+    padding: 10px 25px;
+    margin-top: 15px;
+    background: linear-gradient(45deg, #00d8ff, #ff00f7);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
-section.content ul li {
-  margin: 10px 0;
+.btn:hover {
+    background: linear-gradient(45deg, #ff00f7, #00d8ff);
+    transform: scale(1.05);
 }
 
-#audio-control {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: rgba(0, 0, 0, 0.7);
-  color: white;
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 22px;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+/* Footer */
+footer {
+    background: rgba(0,0,0,0.85);
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+/* Botones de redes en fila */
+.botones-redes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
 }
