@@ -11,16 +11,16 @@
 <body>
 
 <header class="site-header">
-  <nav class="nav">
-    <a class="nav-logo" href="index.html">Lex</a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">Sobre mí</a>
-      <a href="music.html">Música</a>
-      <a href="artists.html">Cantantes</a>
-      <a href="socials.html">Redes</a>
-    </div>
-  </nav>
+<nav class="nav">
+  <a class="nav-logo" href="index.html">Lex</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">Sobre mí</a>
+    <a href="music.html">Música</a>
+    <a href="artists.html">Cantantes</a>
+    <a href="socials.html">Redes</a>
+  </div>
+</nav>
 </header>
 
 <div id="bg-wave"></div>
@@ -28,37 +28,35 @@
 <canvas id="particles" aria-hidden="true"></canvas>
 
 <main class="page">
-  <section class="content card fade-in">
-    <h2>Sobre mí</h2>
-    <p>¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, el mantenimiento de PCs, la música y la creación de contenidos. Ofrezco servicios informáticos en Barcelona (limpieza, optimización y asesoría).</p>
-    <p style="margin-top:1rem;">En esta web encontrarás mis playlists, mis artistas favoritos y mis perfiles en redes. Si quieres contactarme, usa Telegram o email — respondo rápido.</p>
+<section class="content card fade-in">
+<h2>Sobre mí</h2>
+<p>¡Hola! Soy <strong>Alex González</strong> (Lex). Apasionado por la tecnología, el mantenimiento de PCs, la música y la creación de contenidos. Ofrezco servicios informáticos en Barcelona (limpieza, optimización y asesoría).</p>
 
-    <div style="margin-top:1.25rem;">
-      <a class="network-btn" href="mailto:contactol3x@gmail.com">
-        <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" style="width:20px;height:20px;"> Email
-      </a>
-      <a class="network-btn" href="https://t.me/l3xssj" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" style="width:20px;height:20px;"> Telegram
-      </a>
-    </div>
-  </section>
+<p style="margin-top:1rem;">En esta web encontrarás mis playlists, mis artistas favoritos y mis perfiles en redes. Si quieres contactarme, usa Telegram o email — respondo rápido.</p>
+
+<div style="margin-top:1.25rem;">
+  <a class="network-btn" href="mailto:contactol3x@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png"> Email</a>
+  <a class="network-btn" href="https://t.me/l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png"> Telegram</a>
+</div>
+</section>
 </main>
-
-<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
 
 <div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
 <button id="togglePlaylist" class="floating right" title="Abrir playlist">🎵</button>
-<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank">✈</a>
+<a id="telegramQuick" class="floating right-telegram" href="https://t.me/l3xssj" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" alt="Telegram">
+</a>
 
 <div id="playlist" class="panel closed" aria-hidden="true">
   <div class="panel-head">
-    <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png"> Mi Playlist</div>
+    <div class="panel-title"><img src="https://img.icons8.com/ios-glyphs/24/ffffff/spotify.png" alt="spotify"> Mi Playlist</div>
     <button id="closePlaylist" class="panel-close">✕</button>
   </div>
   <iframe src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; encrypted-media"></iframe>
 </div>
 
-<div id="cursor" class="cursor"></div>
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
+<div id="cursor" class="cursor" aria-hidden="true"></div>
 <script src="script.js"></script>
 </body>
 </html>
