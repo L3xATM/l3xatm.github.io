@@ -1,3 +1,4 @@
+// Partículas
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -55,4 +56,12 @@ window.addEventListener('resize', () => {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
   init();
+});
+
+// Loader
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  loader.style.transition = 'opacity 0.5s ease';
+  loader.style.opacity = '0';
+  setTimeout(() => loader.remove(), 600);
 });
