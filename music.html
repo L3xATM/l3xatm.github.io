@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Música — Lex</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
@@ -28,19 +28,15 @@
 
 <main class="page">
   <section class="content fade-in">
-    <h2>Mi Playlist Destacada</h2>
-    <p class="playlist-text">Descubre los beats que me inspiran y las canciones que no puedo dejar de escuchar. ¡Sumérgete en esta selección y déjate llevar por la música!</p>
-    <div class="card" style="margin-top:1.2rem;">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-    </div>
-    <div style="margin-top:1rem;">
-      <div class="muted">Consejo: si el audio no suena al cargar, pulsa el control de audio.</div>
+    <h2 class="neon-title">🎵 Mi Playlist Destacada</h2>
+    <p class="playlist-text neon-text">¡Sumérgete en los ritmos que me inspiran! Esta playlist es una mezcla de beats que me acompañan mientras trabajo, creo contenido y me relajo. Dale play y déjate llevar por el flow.</p>
+    
+    <div class="card playlist-card fade-in">
+      <iframe style="border-radius:16px" src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
     </div>
   </section>
 </main>
 
-<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
-<div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
 <div id="cursor" class="cursor" aria-hidden="true"></div>
 <script src="script.js"></script>
 </body>
