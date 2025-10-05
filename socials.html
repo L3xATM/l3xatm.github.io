@@ -1,12 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Redes — Lex</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
+<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
 </head>
 <body>
 
@@ -17,26 +17,35 @@
       <a href="index.html">Home</a>
       <a href="about.html">Sobre mí</a>
       <a href="music.html">Música</a>
-      <a href="artists.html">Cantantes</a>
       <a href="socials.html">Redes</a>
     </div>
   </nav>
 </header>
 
+<div id="bg-wave"></div>
+<div id="bg-anim" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+
 <main class="page">
   <section class="content fade-in">
-    <h2>Redes Sociales</h2>
-    <div class="grid grid-socials">
-      <a class="network-btn" href="https://www.facebook.com/lex.45152" target="_blank">Facebook</a>
-      <a class="network-btn" href="https://instagram.com/l3xssj" target="_blank">Instagram</a>
-      <a class="network-btn" href="https://tiktok.com/@aaleeexxgonzalez" target="_blank">TikTok</a>
-      <a class="network-btn" href="https://x.com/l3xssj" target="_blank">X/Twitter</a>
-      <a class="network-btn" href="https://www.youtube.com/@l3xssj" target="_blank">YouTube</a>
-      <a class="network-btn" href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank">Wishlist</a>
+    <h2>Redes y Contacto</h2>
+    <p class="muted">Conecta conmigo — respondo rápido por Email o Telegram.</p>
+    <div class="grid social-grid" style="margin-top:1.2rem;">
+      <a class="card network-btn" href="mailto:contactol3x@gmail.com"><img src="https://cdn-icons-png.flaticon.com/512/561/561127.png"> Email</a>
+      <a class="card network-btn" href="https://t.me/l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png"> Telegram</a>
+      <a class="card network-btn" href="https://github.com/L3xATM" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/25/25231.png"> GitHub</a>
+      <a class="card network-btn" href="https://www.instagram.com/l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png"> Instagram</a>
+      <a class="card network-btn" href="https://www.x.com/l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733635.png"> X</a>
+      <a class="card network-btn" href="https://www.youtube.com/@l3xssj" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png"> YouTube</a>
+      <a class="card network-btn" href="https://www.facebook.com/lex.45152" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png"> Facebook</a>
+      <a class="card network-btn" href="https://www.amazon.es/hz/wishlist/ls/X4VQ3NB606CI?ref_=wl_share" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/888/888879.png"> Wishlist</a>
     </div>
   </section>
 </main>
 
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
+<div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
+<div id="cursor" class="cursor" aria-hidden="true"></div>
 <script src="script.js"></script>
 </body>
 </html>
