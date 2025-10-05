@@ -1,48 +1,89 @@
-/* --- FUENTES --- */
-body, html{
-  margin:0; padding:0;
-  font-family: 'Inter', sans-serif;
-  background:#000;
-  overflow-x:hidden;
+body {
+  margin:0;
+  font-family: 'Arial', sans-serif;
+  color: white;
+  background: #000;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 10;
+  padding: 10px 0;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  list-style:none;
+}
+
+nav ul li a {
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
   color:#fff;
-  position:relative;
-  z-index:0;
+  text-shadow: 0 0 15px #0ff;
 }
 
-/* --- HEADER --- */
-.site-header{
-  position:fixed; width:100%; top:0; z-index:1000;
-  background:rgba(0,0,0,0.5); backdrop-filter:blur(10px);
-  display:flex; justify-content:center; padding:1rem 0;
+section {
+  padding:100px 20px;
+  min-height:100vh;
+  z-index:1;
+  position: relative;
 }
-.nav-logo{ font-family:'Roboto', sans-serif; font-size:1.5rem; color:#0ff; text-shadow:0 0 5px #0ff;}
-.nav-links a{ margin:0 1rem; color:#fff; text-decoration:none; transition:0.3s;}
-.nav-links a:hover{ color:#0ff; text-shadow:0 0 10px #0ff; }
 
-/* --- PAGINA --- */
-.page{ padding:120px 20px 50px 20px; min-height:100vh; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:1; position:relative; }
-.content{ max-width:1000px; text-align:center; z-index:1; position:relative; }
-.neon-title{ font-size:2.5rem; text-shadow:0 0 5px #0ff,0 0 10px #0ff,0 0 20px #0ff; margin-bottom:1rem; }
-.neon-text{ font-size:1.2rem; text-shadow:0 0 5px #0ff; margin-bottom:2rem; line-height:1.6; }
-.playlist-card{ background:rgba(0,0,0,0.4); backdrop-filter:blur(12px); padding:1rem; border-radius:16px; margin:0 auto; transition:transform 0.4s, box-shadow 0.4s; z-index:1; position:relative; }
-.playlist-card:hover{ transform:scale(1.03); box-shadow:0 0 20px #0ff,0 0 40px #0ff,0 0 60px #0ff; }
+.artist-grid {
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap:20px;
+  justify-items:center;
+}
 
-/* --- ARTISTAS --- */
-.artist-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:2rem; margin-top:2rem; }
-.artist-card{ background:rgba(0,0,0,0.3); backdrop-filter:blur(10px); border-radius:16px; padding:1rem; width:200px; text-align:center; transition:transform 0.3s, box-shadow 0.3s; }
-.artist-card:hover{ transform:scale(1.05); box-shadow:0 0 15px #0ff,0 0 30px #0ff; }
-.artist-card img{ width:100%; border-radius:12px; margin-bottom:0.5rem; }
+.artist img {
+  width:100px;
+  height:100px;
+  border-radius:50%;
+  object-fit:cover;
+  transition:0.3s;
+  box-shadow: 0 0 5px #0ff;
+}
 
-/* --- REDES --- */
-.socials-grid{ display:flex; justify-content:center; flex-wrap:wrap; gap:1.5rem; margin-top:2rem; z-index:1; position:relative; }
-.socials-grid img{ width:60px; height:60px; transition:0.3s; filter:drop-shadow(0 0 5px #0ff); }
-.socials-grid img:hover{ transform:scale(1.2); filter:drop-shadow(0 0 15px #0ff); }
+.artist img:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 25px #0ff;
+}
 
-/* --- ANIMACIONES --- */
-.fade-in{ opacity:0; transform:translateY(20px); animation:fadeInUp 1s forwards; }
-@keyframes fadeInUp{ to{opacity:1; transform:translateY(0);} }
+#background {
+  position: fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:-1;
+  pointer-events:none;
+}
 
-/* --- FONDO GRADIENTE NEON --- */
-#bg-wave{ position:fixed; width:100%; height:100%; top:0; left:0; z-index:-2; pointer-events:none;
-  background: linear-gradient(-45deg,#0ff,#f0f,#ff0,#0ff); background-size:400% 400%; animation:bgGradient 15s ease infinite; }
-@keyframes bgGradient{ 0%
+.fade-in {
+  opacity:0;
+  animation: fadeIn 1.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity:1; }
+}
+
+/* Playlist hover glow */
+iframe:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #0ff;
+  transition:0.3s;
+}
