@@ -1,154 +1,51 @@
-// Partículas de fondo normal
+// Partículas
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particlesArray = [];
-const colors = ['#ff00ff', '#00f7ff', '#ffea00'];
-
-class Particle {
-  constructor(x, y, dx, dy, size, color) {
-    this.x = x; this.y = y;
-    this.dx = dx; this.dy = dy;
-    this.size = size;
-    this.color = color;
-  }
-  draw(ctx) {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
-    ctx.shadowColor = this.color;
-    ctx.shadowBlur = 20;
-    ctx.fill();
-  }
-  update() {
-    if(this.x + this.size > canvas.width || this.x - this.size < 0) this.dx = -this.dx;
-    if(this.y + this.size > canvas.height || this.y - this.size < 0) this.dy = -this.dy;
-    this.x += this.dx;
-    this.y += this.dy;
-    this.draw(ctx);
-  }
-}
-
-function init() {
-  particlesArray = [];
-  for(let i = 0; i < 50; i++) {
-    let size = Math.random() * 3 + 2;
-    let x = Math.random() * (canvas.width - size * 2) + size;
-    let y = Math.random() * (canvas.height - size * 2) + size;
-    let dx = (Math.random() - 0.5) * 1.5;
-    let dy = (Math.random() - 0.5) * 1.5;
-    let color = colors[Math.floor(Math.random() * colors.length)];
-    particlesArray.push(new Particle(x, y, dx, dy, size, color));
-  }
-}
-function animate() {
-  requestAnimationFrame(animate);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particlesArray.forEach(p => p.update(ctx));
-}
-init();
-animate();
+let w = canvas.width = window.innerWidth;
+let h = canvas.height = window.innerHeight;
 
 window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init();
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
 });
 
-// Partículas del loader
-const loaderCanvas = document.getElementById('loaderParticles');
-const lctx = loaderCanvas.getContext('2d');
-
-loaderCanvas.width = window.innerWidth;
-loaderCanvas.height = window.innerHeight;
-
-let loaderParticles = [];
-function initLoaderParticles() {
-  loaderParticles = [];
-  for(let i = 0; i < 30; i++) {
-    let size = Math.random() * 3 + 1;
-    let x = Math.random() * loaderCanvas.width;
-    let y = Math.random() * loaderCanvas.height;
-    let dx = (Math.random() - 0.5) * 1.5;
-    let dy = (Math.random() - 0.5) * 1.5;
-    let color = colors[Math.floor(Math.random() * colors.length)];
-    loaderParticles.push(new Particle(x, y, dx, dy, size, color));
-  }
-}
-function animateLoader() {
-  requestAnimationFrame(animateLoader);
-  lctx.clearRect(0, 0, loaderCanvas.width, loaderCanvas.height);
-  loaderParticles.forEach(p => p.update(lctx));
-}
-initLoaderParticles();
-animateLoader();
-
-// Ocultar loader al cargar
-window.addEventListener('load', () => {
-  const loader = document.getElementById('loader');
-  loader.style.transition = 'opacity 0.5s ease';
-  loader.style.opacity = '0';
-  setTimeout(() => loader.remove(), 600);
-});
-
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particlesArray = [];
-const colors = ['#ff00ff', '#00f7ff', '#ffea00'];
-
+const particles = [];
 class Particle {
-  constructor(x, y, dx, dy, size, color) {
-    this.x = x; this.y = y;
-    this.dx = dx; this.dy = dy;
-    this.size = size;
-    this.color = color;
+  constructor() {
+    this.x = Math.random() * w;
+    this.y = Math.random() * h;
+    this.radius = Math.random() * 2 + 1;
+    this.dx = (Math.random() - 0.5) * 1.5;
+    this.dy = (Math.random() - 0.5) * 1.5;
   }
   draw() {
     ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-    ctx.fillStyle = this.color;
-    ctx.shadowColor = this.color;
-    ctx.shadowBlur = 20;
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+    ctx.fillStyle = 'white';
     ctx.fill();
   }
   update() {
-    if(this.x + this.size > canvas.width || this.x - this.size < 0) this.dx = -this.dx;
-    if(this.y + this.size > canvas.height || this.y - this.size < 0) this.dy = -this.dy;
     this.x += this.dx;
     this.y += this.dy;
+    if(this.x <0 || this.x>w) this.dx=-this.dx;
+    if(this.y<0 || this.y>h) this.dy=-this.dy;
     this.draw();
   }
 }
+for(let i=0;i<150;i++) particles.push(new Particle());
 
-function init() {
-  particlesArray = [];
-  for(let i = 0; i < 50; i++) {
-    let size = Math.random() * 3 + 2;
-    let x = Math.random() * (canvas.width - size * 2) + size;
-    let y = Math.random() * (canvas.height - size * 2) + size;
-    let dx = (Math.random() - 0.5) * 1.5;
-    let dy = (Math.random() - 0.5) * 1.5;
-    let color = colors[Math.floor(Math.random() * colors.length)];
-    particlesArray.push(new Particle(x, y, dx, dy, size, color));
-  }
-}
-function animate() {
+function animate(){
+  ctx.clearRect(0,0,w,h);
+  particles.forEach(p=>p.update());
   requestAnimationFrame(animate);
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particlesArray.forEach(p => p.update());
 }
-init();
 animate();
 
-window.addEventListener('resize', () => {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init();
+// Música
+const music = document.getElementById('background-music');
+const btn = document.getElementById('toggle-music');
+btn?.addEventListener('click', () => {
+  if(music.paused) music.play();
+  else music.pause();
 });
