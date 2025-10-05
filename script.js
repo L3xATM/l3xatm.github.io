@@ -1,27 +1,22 @@
-// ========== Cursor ==========
+// Audio control
+const audio = document.getElementById('bgAudio');
+const control = document.getElementById('audioControl');
+control.addEventListener('click', () => {
+  if(audio.paused){ audio.play(); control.textContent = '⏸'; }
+  else { audio.pause(); control.textContent = '▶'; }
+});
+
+// Playlist panel
+const playlist = document.getElementById('playlist');
+const toggle = document.getElementById('togglePlaylist');
+const closeP = document.getElementById('closePlaylist');
+
+toggle.addEventListener('click', () => playlist.classList.toggle('open'));
+closeP.addEventListener('click', () => playlist.classList.remove('open'));
+
+// Cursor
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', e => {
   cursor.style.left = e.clientX + 'px';
   cursor.style.top = e.clientY + 'px';
-});
-
-// ========== Audio ==========
-const bgAudio = document.getElementById('bgAudio');
-const audioControl = document.getElementById('audioControl');
-
-audioControl.addEventListener('click', () => {
-  if (bgAudio.paused) { bgAudio.play(); audioControl.textContent='⏸'; }
-  else { bgAudio.pause(); audioControl.textContent='▶'; }
-});
-
-// ========== Playlist Panel ==========
-const playlist = document.getElementById('playlist');
-const togglePlaylist = document.getElementById('togglePlaylist');
-const closePlaylist = document.getElementById('closePlaylist');
-
-togglePlaylist.addEventListener('click', () => {
-  playlist.classList.toggle('closed');
-});
-closePlaylist.addEventListener('click', () => {
-  playlist.classList.add('closed');
 });
