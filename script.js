@@ -1,4 +1,4 @@
-// Partículas
+// Partículas de fondo normal
 const canvas = document.getElementById('particles');
 const ctx = canvas.getContext('2d');
 
@@ -15,7 +15,7 @@ class Particle {
     this.size = size;
     this.color = color;
   }
-  draw() {
+  draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
     ctx.fillStyle = this.color;
@@ -28,7 +28,7 @@ class Particle {
     if(this.y + this.size > canvas.height || this.y - this.size < 0) this.dy = -this.dy;
     this.x += this.dx;
     this.y += this.dy;
-    this.draw();
+    this.draw(ctx);
   }
 }
 
@@ -47,7 +47,7 @@ function init() {
 function animate() {
   requestAnimationFrame(animate);
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particlesArray.forEach(p => p.update());
+  particlesArray.forEach(p => p.update(ctx));
 }
 init();
 animate();
@@ -58,7 +58,35 @@ window.addEventListener('resize', () => {
   init();
 });
 
-// Loader
+// Partículas del loader
+const loaderCanvas = document.getElementById('loaderParticles');
+const lctx = loaderCanvas.getContext('2d');
+
+loaderCanvas.width = window.innerWidth;
+loaderCanvas.height = window.innerHeight;
+
+let loaderParticles = [];
+function initLoaderParticles() {
+  loaderParticles = [];
+  for(let i = 0; i < 30; i++) {
+    let size = Math.random() * 3 + 1;
+    let x = Math.random() * loaderCanvas.width;
+    let y = Math.random() * loaderCanvas.height;
+    let dx = (Math.random() - 0.5) * 1.5;
+    let dy = (Math.random() - 0.5) * 1.5;
+    let color = colors[Math.floor(Math.random() * colors.length)];
+    loaderParticles.push(new Particle(x, y, dx, dy, size, color));
+  }
+}
+function animateLoader() {
+  requestAnimationFrame(animateLoader);
+  lctx.clearRect(0, 0, loaderCanvas.width, loaderCanvas.height);
+  loaderParticles.forEach(p => p.update(lctx));
+}
+initLoaderParticles();
+animateLoader();
+
+// Ocultar loader al cargar
 window.addEventListener('load', () => {
   const loader = document.getElementById('loader');
   loader.style.transition = 'opacity 0.5s ease';
