@@ -9,7 +9,7 @@
   overflow: hidden;
   background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
   box-shadow: 0 25px 60px rgba(0,0,0,0.7);
-  z-index: 150;
+  z-index: 140; /* MENOR que el botón de Telegram */
   transform: translateY(100%);
   opacity: 0;
   transition: transform 0.5s ease, opacity 0.5s ease;
@@ -20,14 +20,24 @@
   opacity: 1;
 }
 
-/* Ajuste botón Telegram al abrir playlist */
+/* Botón Telegram flotante */
 .floating.right-telegram {
-  bottom: 5rem; /* posición normal */
-  right: 1rem;
-  z-index: 151;
+  position: fixed;
+  bottom: 18px;
+  right: 18px;
+  z-index: 150; /* siempre encima del panel */
+  background: #0088cc;
+  color: #fff;
+  padding: 12px 14px;
+  border-radius: 12px;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   transition: bottom 0.5s ease;
 }
 
+/* Cuando playlist abierto, opcional: sube el botón Telegram */
 .floating.right-telegram.up {
-  bottom: 20rem; /* sube cuando la playlist se abre */
+  bottom: 20rem; /* ajusta según altura de la playlist */
 }
