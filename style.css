@@ -1,83 +1,26 @@
-/* ... tu CSS actual ... */
+* { margin:0; padding:0; box-sizing:border-box; font-family:'Arial', sans-serif; }
 
-/* Pantalla de carga */
-#loader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #0f0f0f;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 2000;
-  overflow: hidden;
-}
+body, html { width:100%; height:100%; overflow-x:hidden; background:#0d0d0d; color:white; scroll-behavior:smooth; }
 
-#loaderParticles {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+canvas#particles { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; }
 
-.loader-text {
-  position: relative;
-  font-size: 3rem;
-  font-weight: bold;
-  color: #ff00ff;
-  text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff;
-  animation: pulse 1.5s ease-in-out infinite;
-}
+.container { position:relative; text-align:center; padding:50px 20px; max-width:900px; margin:auto; }
 
-@keyframes pulse {
-  0%, 100% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.2); opacity: 0.7; }
-}
+h1.glow { font-size:3em; text-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff,0 0 30px #ff00ff; margin-bottom:20px; }
 
-/* Loader */
-#loader {
-  position: fixed;
-  top:0; left:0;
-  width:100%; height:100%;
-  background: linear-gradient(-45deg, #0f0f0f, #1a0033, #000814, #240046);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  z-index:2000;
-  transition: opacity 1s ease;
-}
+p.text, .subtitle { font-size:1.2em; margin-bottom:30px; line-height:1.6em; }
 
-#loader.fade-out {
-  opacity:0;
-}
+nav a.glow-btn, a.glow-btn { display:inline-block; padding:15px 30px; margin:10px; color:#fff; text-decoration:none; border:2px solid #ff00ff; border-radius:12px; text-shadow:0 0 5px #ff00ff; box-shadow:0 0 10px #ff00ff,0 0 20px #ff00ff; transition:all 0.3s ease; }
 
-.loader-text {
-  font-size:3rem;
-  font-weight:bold;
-  color:white;
-  text-shadow: 0 0 15px #ff00ff, 0 0 30px #ff00ff;
-  animation: glow 1.5s ease-in-out infinite alternate;
-}
+nav a.glow-btn:hover, a.glow-btn:hover { background:#ff00ff; color:#000; box-shadow:0 0 20px #ff00ff,0 0 30px #ff00ff,0 0 40px #ff00ff; }
 
-@keyframes glow {
-  0% { text-shadow: 0 0 10px #ff00ff, 0 0 20px #ff00ff; }
-  100% { text-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff; }
-}
+ul.socials { list-style:none; padding:0; margin-bottom:30px; }
+ul.socials li { margin:15px 0; font-size:1.2em; }
+ul.socials li a { color:#ff00ff; text-decoration:none; transition:0.2s; }
+ul.socials li a:hover { text-shadow:0 0 5px #ff00ff; }
 
-/* Animaciones de fade-in para secciones */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 1s forwards;
-}
+.fade-in { opacity:0; animation:fadeIn 1s forwards; }
+.fade-up { opacity:0; transform:translateY(20px); animation:fadeUp 1s forwards; }
 
-@keyframes fadeInUp {
-  to {
-    opacity:1;
-    transform: translateY(0);
-  }
-}
-
+@keyframes fadeIn { to { opacity:1; } }
+@keyframes fadeUp { to { opacity:1; transform:translateY(0); } }
