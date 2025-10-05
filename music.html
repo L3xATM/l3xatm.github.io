@@ -1,12 +1,12 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Cantantes — Lex</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Música — Lex</title>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png" />
+<link rel="icon" href="https://img.icons8.com/color/48/000000/user-male-circle.png">
 </head>
 <body>
 
@@ -17,52 +17,31 @@
       <a href="index.html">Home</a>
       <a href="about.html">Sobre mí</a>
       <a href="music.html">Música</a>
-      <a href="artists.html">Cantantes</a>
       <a href="socials.html">Redes</a>
     </div>
   </nav>
 </header>
 
+<div id="bg-wave"></div>
+<div id="bg-anim" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+
 <main class="page">
   <section class="content fade-in">
-    <h2>Artistas Favoritos</h2>
-    <div class="grid grid-artists">
-      <!-- Duki -->
-      <div class="artist fade-in">
-        <img class="artist-img" src="https://images.sk-static.com/images/media/profile_images/artists/9235114/huge_avatar" alt="Duki">
-        <p>Duki</p>
-        <a href="https://t.me/duki" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" style="width:24px; height:24px;" alt="Telegram">
-        </a>
-      </div>
-      <!-- Pole -->
-      <div class="artist fade-in">
-        <img class="artist-img" src="https://cdn-p.smehost.net/sites/1f30c30982e94fb991ebc072daf6b6f4/wp-content/uploads/2025/06/pole_bio.jpg" alt="Pole">
-        <p>Pole</p>
-        <a href="https://t.me/pole" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" style="width:24px; height:24px;" alt="Telegram">
-        </a>
-      </div>
-      <!-- Funzo y Babyloud -->
-      <div class="artist fade-in">
-        <img class="artist-img" src="https://cdn-p.smehost.net/sites/5b3bac59eb36401694af3a241173447f/wp-content/uploads/2022/02/MicrosoftTeams-image-11.jpg" alt="Funzo y Babyloud">
-        <p>Funzo y Babyloud</p>
-        <a href="https://t.me/funzo_babyloud" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" style="width:24px; height:24px;" alt="Telegram">
-        </a>
-      </div>
-      <!-- YSY A -->
-      <div class="artist fade-in">
-        <img class="artist-img" src="https://pbs.twimg.com/media/FUw6RZOWUAAPDki.jpg" alt="YSY A">
-        <p>YSY A</p>
-        <a href="https://t.me/ysy_a" target="_blank">
-          <img src="https://cdn-icons-png.flaticon.com/512/5873/5873388.png" style="width:24px; height:24px;" alt="Telegram">
-        </a>
-      </div>
+    <h2>Mi Playlist Destacada</h2>
+    <p class="playlist-text">Descubre los beats que me inspiran y las canciones que no puedo dejar de escuchar. ¡Sumérgete en esta selección y déjate llevar por la música!</p>
+    <div class="card" style="margin-top:1.2rem;">
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/4khQQx5oUocuhceFQJgXkH?utm_source=generator" width="100%" height="380" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    </div>
+    <div style="margin-top:1rem;">
+      <div class="muted">Consejo: si el audio no suena al cargar, pulsa el control de audio.</div>
     </div>
   </section>
 </main>
 
+<audio id="bgAudio" src="./vuelta_a_la_luna.mp3" loop preload="auto"></audio>
+<div id="audioControl" class="floating control" title="Reproducir / Pausar música">▶</div>
+<div id="cursor" class="cursor" aria-hidden="true"></div>
 <script src="script.js"></script>
 </body>
 </html>
