@@ -1,43 +1,39 @@
-// Partículas
-const canvas = document.getElementById('particles');
-const ctx = canvas.getContext('2d');
+// Archivo: script.js
 
-let w = canvas.width = window.innerWidth;
-let h = canvas.height = window.innerHeight;
-
-window.addEventListener('resize', () => {
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
+// Cambio de tema claro/oscuro al hacer clic en el botón
+const btnTema = document.getElementById('btn-tema');
+btnTema.addEventListener('click', () => {
+  document.documentElement.classList.toggle('tema-oscuro');
+  // Cambiar ícono según el tema
+  if (document.documentElement.classList.contains('tema-oscuro')) {
+    localStorage.setItem('tema', 'oscuro'); // Guardar preferencia
+    btnTema.innerHTML = '<i class="fa-solid fa-sun"></i>';
+  } else {
+    localStorage.setItem('tema', 'claro');
+    btnTema.innerHTML = '<i class="fa-solid fa-moon"></i>';
+  }
 });
 
-const particles = [];
-class Particle {
-  constructor() {
-    this.x = Math.random() * w;
-    this.y = Math.random() * h;
-    this.radius = Math.random() * 2 + 1;
-    this.dx = (Math.random() - 0.5) * 1.5;
-    this.dy = (Math.random() - 0.5) * 1.5;
-  }
-  draw() {
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
-    ctx.fillStyle = 'white';
-    ctx.fill();
-  }
-  update() {
-    this.x += this.dx;
-    this.y += this.dy;
-    if(this.x <0 || this.x>w) this.dx=-this.dx;
-    if(this.y<0 || this.y>h) this.dy=-this.dy;
-    this.draw();
-  }
+// Aplicar tema guardado al cargar la página
+if (localStorage.getItem('tema') === 'oscuro') {
+  document.documentElement.classList.add('tema-oscuro');
+  btnTema.innerHTML = '<i class="fa-solid fa-sun"></i>';
 }
-for(let i=0;i<150;i++) particles.push(new Particle());
 
-function animate(){
-  ctx.clearRect(0,0,w,h);
-  particles.forEach(p=>p.update());
-  requestAnimationFrame(animate);
-}
-animate();
+// Validación simple del formulario de contacto
+const form = document.getElementById('form-contacto');
+form.addEventListener('submit', function(e) {
+  const nombre = document.getElementById('nombre').value.trim();
+  const email = document.getElementById('email').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+
+  if (!nombre || !email || !mensaje) {
+    alert('Por favor completa todos los campos.');
+    e.preventDefault(); // Detener envío si hay campos vacíos
+  } else {
+    // Ejemplo de validación adicional (por ej. formato de email) se puede agregar aquí
+    alert('Formulario enviado (simulado).');
+    form.reset();
+    e.preventDefault(); // Quitar si se agrega procesamiento en el servidor
+  }
+});
